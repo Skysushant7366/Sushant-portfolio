@@ -4,894 +4,569 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sushant Kumar Yadav — Data & Business Analyst</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<meta name="description" content="Sushant Kumar Yadav — Data Analyst, Business Analyst & Analytics Engineer. dbt, BigQuery, Python, Power BI, GenAI pipelines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #05081A;
-  --bg-card: #0B1120;
-  --bg-card2: #0F172A;
-  --blue: #38BDF8;
-  --blue-dim: rgba(56,189,248,0.12);
-  --gold: #F59E0B;
-  --gold-dim: rgba(245,158,11,0.12);
-  --green: #10B981;
-  --text: #F1F5F9;
-  --muted: #64748B;
-  --border: rgba(56,189,248,0.15);
-  --border-gold: rgba(245,158,11,0.25);
-  --glow: 0 0 40px rgba(56,189,248,0.15);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden;cursor:none}
+  :root{
+    --bg:#0A0E14;
+    --surface:#10151F;
+    --surface-2:#161C29;
+    --border:rgba(232,163,61,0.14);
+    --border-strong:rgba(232,163,61,0.32);
+    --amber:#E8A33D;
+    --amber-dim:rgba(232,163,61,0.12);
+    --teal:#4FD1C5;
+    --teal-dim:rgba(79,209,197,0.12);
+    --text:#EDEFF4;
+    --muted:#8B93A7;
+    --muted-2:#5B6479;
+    --radius:10px;
+    --maxw:1180px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}
 
-/* CURSOR */
-.cursor{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:screen}
-.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(56,189,248,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .15s,width .2s,height .2s}
-.cursor-ring.expand{width:50px;height:50px;border-color:var(--gold)}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(rgba(232,163,61,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,163,61,0.035) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 70%);
+    pointer-events:none;
+    z-index:0;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  section{position:relative;z-index:1}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(5,8,26,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:-0.5px;color:var(--text)}
-.nav-logo span{color:var(--blue)}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;transition:color .2s}
-.nav-links a:hover{color:var(--blue)}
-.nav-badge{background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(16,185,129,0.4)}50%{opacity:.9;box-shadow:0 0 0 6px rgba(16,185,129,0)}}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.01em}
+  .mono{font-family:'JetBrains Mono',monospace}
 
-/* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 60px 80px;overflow:hidden}
-canvas#neural{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
-.hero-content{position:relative;z-index:2;max-width:780px}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid var(--border);border-radius:30px;padding:6px 18px;font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--blue);margin-bottom:32px;letter-spacing:0.5px}
-.hero-tag::before{content:'';width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 1.5s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(52px,7vw,80px);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:8px}
-.hero h1 em{font-style:italic;color:var(--blue)}
-.hero-sub{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
-.hero-desc{font-size:17px;color:#94A3B8;max-width:560px;line-height:1.8;margin-bottom:40px}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;letter-spacing:.3px}
-.btn-primary{background:var(--blue);color:#05081A}
-.btn-primary:hover{background:#7DD3FC;box-shadow:0 0 30px rgba(56,189,248,0.4)}
-.btn-outline{border:1px solid var(--border);color:var(--text)}
-.btn-outline:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-dim)}
-.hero-scroll{position:absolute;bottom:40px;left:60px;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
-.scroll-line{width:40px;height:1px;background:var(--muted);position:relative;overflow:hidden}
-.scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--blue);animation:scrollAnim 2s infinite}
-@keyframes scrollAnim{to{left:100%}}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px; border-radius:4px}
 
-/* STATS STRIP */
-.stats-strip{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 60px;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
-.stat-item{text-align:center;padding:0 20px;border-right:1px solid var(--border)}
-.stat-item:last-child{border-right:none}
-.stat-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--blue);letter-spacing:-2px;display:block}
-.stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(10,14,20,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:var(--maxw);margin:0 auto}
+  .nav-id{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--amber);display:flex;align-items:center;gap:8px}
+  .nav-id .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+  .nav-links{display:flex;gap:28px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--amber)}
+  .nav-toggle{display:none;background:none;border:1px solid var(--border-strong);color:var(--amber);width:38px;height:38px;border-radius:6px;font-family:'JetBrains Mono',monospace;cursor:pointer}
 
-/* SECTIONS */
-section{padding:100px 60px}
-.section-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:block}
-.section-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,52px);font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px}
-.section-title span{color:var(--blue)}
-.section-line{width:60px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);margin-bottom:60px}
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed; top:60px; left:0; right:0;
+      background:var(--surface);
+      border-bottom:1px solid var(--border);
+      flex-direction:column; gap:0;
+      max-height:0; overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    .nav-links.open{max-height:320px}
+    .nav-links a{padding:14px 32px;border-top:1px solid var(--border)}
+    .nav-toggle{display:block}
+  }
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-text p{color:#94A3B8;margin-bottom:20px;font-size:16px;line-height:1.9}
-.about-text strong{color:var(--text)}
-.about-panel{background:var(--bg-card2);border:1px solid var(--border);border-radius:12px;padding:36px;position:relative;overflow:hidden}
-.about-panel::before{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(56,189,248,0.08),transparent 70%)}
-.stack-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
-.stack-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.stack-name{font-size:13px;color:var(--text);min-width:100px;font-family:'JetBrains Mono',monospace}
-.stack-bar-bg{flex:1;height:4px;background:rgba(255,255,255,0.07);border-radius:4px;overflow:hidden}
-.stack-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--blue),rgba(56,189,248,0.4));transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(0.16,1,0.3,1)}
-.stack-bar-fill.gold{background:linear-gradient(90deg,var(--gold),rgba(245,158,11,0.4))}
-.stack-pct{font-size:12px;color:var(--muted);min-width:36px;text-align:right;font-family:'JetBrains Mono',monospace}
+  /* ---------- HERO ---------- */
+  .hero{padding:168px 0 100px}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--teal);
+    background:var(--teal-dim); border:1px solid rgba(79,209,197,0.25);
+    display:inline-block; padding:5px 12px; border-radius:20px; margin-bottom:28px;
+  }
+  .console{
+    background:var(--surface);
+    border:1px solid var(--border-strong);
+    border-radius:var(--radius);
+    box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
+    overflow:hidden;
+    max-width:820px;
+  }
+  .console-bar{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 16px; background:var(--surface-2); border-bottom:1px solid var(--border);
+    flex-wrap:nowrap; overflow:hidden;
+  }
+  .console-bar span{width:10px;height:10px;min-width:10px;border-radius:50%;background:#3A4152}
+  .console-bar .title{margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted-2);white-space:nowrap}
+  .console-body{padding:26px 28px 30px;font-family:'JetBrains Mono',monospace;font-size:14.5px;line-height:1.9}
+  .console-body .kw{color:#C792EA}
+  .console-body .fn{color:var(--teal)}
+  .console-body .str{color:var(--amber)}
+  .console-body .cmt{color:var(--muted-2)}
+  #typedQuery{white-space:pre-wrap;color:var(--text);display:block;min-height:5.7em}
+  .cmt{display:block;margin-bottom:4px}
+  .cursor{display:inline-block;width:8px;height:17px;background:var(--amber);vertical-align:middle;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+  .result-row{
+    margin-top:18px; padding-top:18px; border-top:1px dashed var(--border);
+    opacity:0; transform:translateY(6px); transition:opacity .5s ease, transform .5s ease;
+  }
+  .result-row.show{opacity:1; transform:translateY(0)}
+  .result-row .rname{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:var(--text)}
+  .result-row .rtitle{color:var(--amber);font-size:14.5px;margin-top:4px}
+  .result-row .rmeta{color:var(--muted);font-size:13px;margin-top:10px}
 
-/* SKILLS CHARTS */
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.chart-card{background:var(--bg-card2);border:1px solid var(--border);border-radius:12px;padding:36px}
-.chart-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:28px;font-family:'JetBrains Mono',monospace}
-.chart-wrap{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .btn{
+    font-family:'JetBrains Mono',monospace;font-size:13.5px;
+    padding:12px 22px;border-radius:8px;border:1px solid var(--border-strong);
+    display:inline-flex;align-items:center;gap:8px;transition:all .2s;
+  }
+  .btn-primary{background:var(--amber);color:#0A0E14;border-color:var(--amber);font-weight:600}
+  .btn-primary:hover{background:#f2b559;transform:translateY(-1px)}
+  .btn-ghost{color:var(--text);background:transparent}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
 
-/* PROJECTS */
-.projects-grid{display:grid;gap:24px}
-.project-featured{background:var(--bg-card2);border:1px solid var(--border-gold);border-radius:16px;padding:44px;position:relative;overflow:hidden;transition:all .3s}
-.project-featured:hover{border-color:var(--gold);box-shadow:0 0 60px rgba(245,158,11,0.1)}
-.project-featured::before{content:'';position:absolute;top:0;right:0;width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,0.06),transparent 70%);pointer-events:none}
-.feat-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-dim);border:1px solid var(--border-gold);border-radius:20px;padding:4px 14px;font-size:11px;color:var(--gold);font-family:'JetBrains Mono',monospace;letter-spacing:1px;margin-bottom:20px}
-.feat-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:8px}
-.feat-stack{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.tag{background:var(--blue-dim);border:1px solid var(--border);border-radius:4px;padding:3px 10px;font-size:11px;color:var(--blue);font-family:'JetBrains Mono',monospace}
-.tag.gold{background:var(--gold-dim);border-color:var(--border-gold);color:var(--gold)}
-.feat-desc{color:#94A3B8;font-size:15px;line-height:1.8;margin-bottom:28px;max-width:680px}
-.feat-metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:28px}
-.feat-metric{background:rgba(5,8,26,0.6);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
-.feat-metric-num{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--gold);display:block}
-.feat-metric-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
-.feat-bullets{list-style:none;margin-bottom:28px}
-.feat-bullets li{color:#94A3B8;font-size:14px;padding:6px 0;padding-left:20px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04)}
-.feat-bullets li::before{content:'→';position:absolute;left:0;color:var(--blue)}
-.feat-links{display:flex;gap:12px}
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:100px 0}
+  .section-head{margin-bottom:52px}
+  .schema-label{
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--muted-2);
+    margin-bottom:10px; letter-spacing:0.02em;
+  }
+  .schema-label .path{color:var(--amber)}
+  .section-title{font-size:clamp(28px,4vw,38px);font-weight:600}
+  .section-sub{color:var(--muted);max-width:640px;margin-top:14px;font-size:15.5px}
 
-.projects-sub{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
-.proj-card{background:var(--bg-card2);border:1px solid var(--border);border-radius:12px;padding:28px;transition:all .3s;position:relative;overflow:hidden}
-.proj-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:var(--glow)}
-.proj-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(56,189,248,0.05),transparent 70%);opacity:0;transition:opacity .3s}
-.proj-card:hover::after{opacity:1}
-.proj-icon{font-size:28px;margin-bottom:16px}
-.proj-title{font-size:17px;font-weight:700;margin-bottom:8px;font-family:'Playfair Display',serif}
-.proj-desc{color:#64748B;font-size:13px;line-height:1.7;margin-bottom:16px}
-.proj-stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
-.proj-stat{background:var(--blue-dim);border:1px solid var(--border);border-radius:4px;padding:3px 10px;font-size:11px;color:var(--blue);font-family:'JetBrains Mono',monospace}
-.proj-links{display:flex;gap:10px}
-.link-btn{font-size:12px;color:var(--muted);text-decoration:none;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;transition:color .2s;display:flex;align-items:center;gap:4px}
-.link-btn:hover{color:var(--blue)}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
 
-/* SIMULATIONS */
-.sim-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:60px}
-.sim-chart-wrap{background:var(--bg-card2);border:1px solid var(--border);border-radius:12px;padding:28px}
-.sim-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.sim-card{background:var(--bg-card2);border:1px solid var(--border);border-radius:12px;padding:28px;transition:all .3s;position:relative}
-.sim-card:hover{border-color:var(--blue);box-shadow:var(--glow)}
-.sim-company{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
-.sim-title{font-size:17px;font-weight:700;margin-bottom:4px;font-family:'Playfair Display',serif}
-.sim-date{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:16px}
-.sim-bullets{list-style:none;margin-bottom:20px}
-.sim-bullets li{font-size:13px;color:#94A3B8;padding:5px 0;padding-left:18px;position:relative;line-height:1.6}
-.sim-bullets li::before{content:'▸';position:absolute;left:0;color:var(--blue);font-size:10px;top:7px}
-.sim-cert-link{display:inline-flex;align-items:center;gap:6px;background:var(--blue-dim);border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:11px;color:var(--blue);text-decoration:none;font-family:'JetBrains Mono',monospace;letter-spacing:.5px;transition:all .2s}
-.sim-cert-link:hover{background:rgba(56,189,248,0.2);border-color:var(--blue)}
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+  @media (max-width:820px){.about-grid{grid-template-columns:1fr}}
+  .about-text p{color:#C7CBD6;font-size:16px;margin-bottom:16px}
+  .about-text strong{color:var(--text)}
+  .stat-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  .stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 20px;border-bottom:1px solid var(--border)}
+  .stat-row:last-child{border-bottom:none}
+  .stat-row .k{color:var(--muted);font-size:13.5px;font-family:'JetBrains Mono',monospace}
+  .stat-row .v{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--amber)}
 
-/* CERTIFICATIONS */
-.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.cert-card{background:var(--bg-card2);border:1px solid var(--border);border-radius:12px;padding:28px;transition:all .3s}
-.cert-card:hover{border-color:var(--gold);box-shadow:0 0 30px rgba(245,158,11,0.08)}
-.cert-issuer{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.cert-name{font-size:16px;font-weight:700;margin-bottom:6px;line-height:1.4}
-.cert-meta{font-size:12px;color:var(--muted);margin-bottom:16px;font-family:'JetBrains Mono',monospace}
-.cert-score{display:inline-block;background:var(--gold-dim);border:1px solid var(--border-gold);border-radius:20px;padding:3px 12px;font-size:12px;color:var(--gold);font-weight:700;margin-bottom:16px}
-.cert-verify{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--blue);text-decoration:none;font-family:'JetBrains Mono',monospace;transition:color .2s}
-.cert-verify:hover{color:#7DD3FC}
+  /* ---------- SKILLS ---------- */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (max-width:820px){.skill-grid{grid-template-columns:1fr}}
+  .skill-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px}
+  .skill-card h4{font-size:14px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-bottom:14px;font-weight:500}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px}
+  .pill{
+    font-size:12.5px;padding:5px 11px;border-radius:6px;
+    background:var(--surface-2);border:1px solid var(--border);color:#C7CBD6;
+  }
 
-/* FORAGE CERTS */
-.forage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:60px}
-.forage-mini{background:var(--bg-card2);border:1px solid var(--border);border-radius:10px;padding:20px;transition:all .3s;text-align:center}
-.forage-mini:hover{border-color:var(--blue);transform:translateY(-3px)}
-.forage-co{font-size:11px;color:var(--gold);font-family:'JetBrains Mono',monospace;letter-spacing:1px;margin-bottom:8px}
-.forage-sim{font-size:13px;font-weight:600;margin-bottom:4px;line-height:1.4}
-.forage-date{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:14px}
-.forage-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--blue);text-decoration:none;font-family:'JetBrains Mono',monospace;border:1px solid var(--border);border-radius:4px;padding:4px 12px;transition:all .2s}
-.forage-link:hover{background:var(--blue-dim);border-color:var(--blue)}
+  /* ---------- FLAGSHIP PROJECT ---------- */
+  .flagship{
+    background:linear-gradient(160deg, var(--surface) 0%, var(--surface-2) 100%);
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:44px;
+    position:relative;
+    overflow:hidden;
+  }
+  .flagship::after{
+    content:"";position:absolute;top:-40%;right:-15%;width:480px;height:480px;
+    background:radial-gradient(circle, rgba(232,163,61,0.10), transparent 70%);
+    pointer-events:none;
+  }
+  @media (max-width:640px){.flagship{padding:28px}}
+  .flagship-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(232,163,61,0.3);padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:18px}
+  .flagship h3{font-size:clamp(22px,3vw,30px);margin-bottom:14px;max-width:640px}
+  .flagship p{color:#C7CBD6;font-size:15.5px;max-width:680px;margin-bottom:24px}
+  .flow-chain{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;font-family:'JetBrains Mono',monospace;font-size:12px}
+  .flow-step{background:rgba(0,0,0,0.25);border:1px solid var(--border);padding:6px 12px;border-radius:6px;color:var(--muted)}
+  .flow-arrow{color:var(--muted-2);align-self:center}
+  .flagship-links{display:flex;gap:14px;flex-wrap:wrap}
 
-/* CONTACT */
-.contact-inner{max-width:700px;margin:0 auto;text-align:center}
-.contact-inner .section-title{margin-bottom:20px}
-.contact-inner p{color:#64748B;font-size:16px;margin-bottom:48px}
-.contact-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
-.contact-link{display:flex;align-items:center;gap:10px;background:var(--bg-card2);border:1px solid var(--border);border-radius:10px;padding:16px 28px;text-decoration:none;color:var(--text);font-size:14px;font-weight:500;transition:all .3s}
-.contact-link:hover{border-color:var(--blue);background:var(--blue-dim);transform:translateY(-3px)}
-.contact-link span{font-size:18px}
+  /* ---------- PROJECT GRID ---------- */
+  .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:980px){.project-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:640px){.project-grid{grid-template-columns:1fr}}
+  .pcard{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;display:flex;flex-direction:column;height:100%;
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .pcard:hover{transform:translateY(-4px);border-color:var(--border-strong)}
+  .pcard .ptag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted-2);margin-bottom:10px}
+  .pcard h4{font-size:16.5px;margin-bottom:10px;line-height:1.35}
+  .pcard p{color:var(--muted);font-size:13.5px;flex-grow:1;margin-bottom:16px}
+  .pcard .plink{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--teal);display:inline-flex;align-items:center;gap:6px}
+  .pcard .plink:hover{color:var(--amber)}
 
-/* FOOTER */
-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:32px 60px;display:flex;justify-content:space-between;align-items:center}
-.footer-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:900}
-.footer-logo span{color:var(--blue)}
-.footer-text{font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+  /* ---------- CERTS ---------- */
+  .cert-list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  .cert-row{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;
+    padding:18px 22px;border-bottom:1px solid var(--border);
+    transition:background .2s;
+  }
+  .cert-row:last-child{border-bottom:none}
+  .cert-row:hover{background:var(--surface)}
+  .cert-row .cname{font-size:14.5px;color:var(--text)}
+  .cert-row .cmeta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted-2)}
+  .cert-row a.cname:hover{color:var(--amber)}
 
-/* ANIMATIONS */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(0.16,1,0.3,1),transform .7s cubic-bezier(0.16,1,0.3,1)}
-.reveal.visible{opacity:1;transform:none}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-.reveal-delay-4{transition-delay:.4s}
-
-/* DIVIDER */
-.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 60px}
-
-@media(max-width:768px){
-  nav{padding:16px 24px}
-  .nav-links{display:none}
-  .hero,.stats-strip,section,footer{padding-left:24px;padding-right:24px}
-  .hero h1{font-size:42px}
-  .stats-strip{grid-template-columns:repeat(2,1fr)}
-  .about-grid,.skills-grid,.sim-header,.sim-grid,.certs-grid,.projects-sub{grid-template-columns:1fr}
-  .feat-metrics{grid-template-columns:repeat(3,1fr)}
-  .forage-grid{grid-template-columns:repeat(2,1fr)}
-  .section-divider{margin:0 24px}
-}
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact-box{
+    background:var(--surface);border:1px solid var(--border-strong);border-radius:16px;
+    padding:56px 44px;text-align:center;
+  }
+  .contact-box h2{font-size:clamp(26px,4vw,36px);margin-bottom:16px}
+  .contact-box p{color:var(--muted);max-width:480px;margin:0 auto 30px}
+  .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+  footer{padding:36px 0;text-align:center;color:var(--muted-2);font-family:'JetBrains Mono',monospace;font-size:12.5px}
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">S<span>K</span>Y</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#simulations">Simulations</a></li>
-    <li><a href="#certifications">Certs</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <span class="nav-badge">Open to Work</span>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <canvas id="neural"></canvas>
-  <div class="hero-content">
-    <div class="hero-tag">📍 New Delhi · Available Immediately</div>
-    <h1>Sushant Kumar<br><em>Yadav</em></h1>
-    <p class="hero-sub">Data · Business · Financial Analyst</p>
-    <p class="hero-desc">B.Com (Hons) from University of Delhi. Built production ML pipelines, churn models, and executive dashboards across 8 industry simulations with BCG X, EY, PwC, Quantium & Deloitte.</p>
-    <div class="hero-btns">
-      <a href="#projects" class="btn btn-primary">View My Work</a>
-      <a href="https://linkedin.com/in/sushantkumaryadav310899" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
-      <a href="mailto:skysushantm416@gmail.com" class="btn btn-outline">Hire Me</a>
+<header>
+  <nav class="nav">
+    <div class="nav-id"><span class="dot"></span>sushant@analytics:~$</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">schema.about</a>
+      <a href="#skills">schema.skills</a>
+      <a href="#projects">schema.projects</a>
+      <a href="#certs">schema.certs</a>
+      <a href="#contact">schema.contact</a>
     </div>
-  </div>
-  <div class="hero-scroll"><div class="scroll-line"></div>SCROLL</div>
-</section>
+  </nav>
+</header>
 
-<!-- STATS -->
-<div class="stats-strip">
-  <div class="stat-item">
-    <span class="stat-num" data-target="8">0</span>
-    <div class="stat-label">Forage Simulations</div>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num" data-target="264836" data-prefix="">0</span>
-    <div class="stat-label">Transactions Analysed</div>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num" data-target="94" data-suffix=".8%">0</span>
-    <div class="stat-label">MS BA Certificate Avg</div>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num" data-target="10" data-prefix="$" data-suffix=".76M">0</span>
-    <div class="stat-label">Revenue Analysed</div>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num" data-target="95" data-suffix="%">0</span>
-    <div class="stat-label">Churn Model Recall</div>
-  </div>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <span class="section-tag">// who i am</span>
-      <h2 class="section-title">Where Finance<br><span>Meets Data</span></h2>
-      <div class="section-line"></div>
-      <p>I'm a <strong>B.Com (Honours) graduate from University of Delhi</strong> who builds things that matter — production ML pipelines, predictive churn models, and executive-grade dashboards that turn raw data into clear business decisions.</p>
-      <p>Completed <strong>8 industry simulations</strong> with BCG X, EY, PwC, Quantium, and Deloitte. Architected an <strong>end-to-end E-Commerce ML Pipeline on GCP</strong> analysing $10.76M revenue across 79.84K customers with XGBoost, BigQuery, and Looker Studio.</p>
-      <p>My edge: I speak <strong>both languages</strong> — the language of business (DCF, M&A, Fraud Triangles) and the language of data (Python, SQL, XGBoost, SHAP, K-Means).</p>
-      <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap">
-        <a href="https://github.com/Skysushant7366" target="_blank" class="btn btn-outline" style="padding:10px 20px;font-size:13px">GitHub ↗</a>
-        <a href="https://skysushant7366.github.io/Sushant-portfolio/" target="_blank" class="btn btn-outline" style="padding:10px 20px;font-size:13px">Portfolio ↗</a>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">● Open to Data Analyst / Business Analyst / Analytics Engineer roles</span>
+      <div class="console">
+        <div class="console-bar">
+          <span style="background:#E8555A"></span><span style="background:#E8B23D"></span><span style="background:#4FD16B"></span>
+          <span class="title">warehouse.sql</span>
+        </div>
+        <div class="console-body">
+<div class="cmt">-- who is querying this table?</div>
+<div id="typedQuery"></div><span class="cursor" id="cursorBlink"></span>
+          <div class="result-row" id="resultRow">
+            <div class="rname">Sushant Kumar Yadav</div>
+            <div class="rtitle">Data Analyst · Business Analyst · Analytics Engineer</div>
+            <div class="rmeta">1 row returned · New Delhi, India · available_from: immediate</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">→ View projects</a>
+        <a class="btn btn-ghost" href="https://github.com/Skysushant7366" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/sushantkumaryadav310899" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="mailto:skysushantm416@gmail.com">Email ↗</a>
       </div>
     </div>
-    <div class="about-panel reveal reveal-delay-2">
-      <div class="stack-label">// core stack</div>
-      <div id="stackBars">
-        <div class="stack-row"><span class="stack-name">Python</span><div class="stack-bar-bg"><div class="stack-bar-fill" style="width:90%"></div></div><span class="stack-pct">90%</span></div>
-        <div class="stack-row"><span class="stack-name">SQL</span><div class="stack-bar-bg"><div class="stack-bar-fill" style="width:85%"></div></div><span class="stack-pct">85%</span></div>
-        <div class="stack-row"><span class="stack-name">Excel / VBA</span><div class="stack-bar-bg"><div class="stack-bar-fill" style="width:88%"></div></div><span class="stack-pct">88%</span></div>
-        <div class="stack-row"><span class="stack-name">Tableau</span><div class="stack-bar-bg"><div class="stack-bar-fill gold" style="width:85%"></div></div><span class="stack-pct">85%</span></div>
-        <div class="stack-row"><span class="stack-name">Power BI</span><div class="stack-bar-bg"><div class="stack-bar-fill gold" style="width:82%"></div></div><span class="stack-pct">82%</span></div>
-        <div class="stack-row"><span class="stack-name">R</span><div class="stack-bar-bg"><div class="stack-bar-fill" style="width:75%"></div></div><span class="stack-pct">75%</span></div>
-        <div class="stack-row"><span class="stack-name">ML / XGBoost</span><div class="stack-bar-bg"><div class="stack-bar-fill" style="width:72%"></div></div><span class="stack-pct">72%</span></div>
-        <div class="stack-row"><span class="stack-name">Financial Model</span><div class="stack-bar-bg"><div class="stack-bar-fill gold" style="width:78%"></div></div><span class="stack-pct">78%</span></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="schema-label"><span class="path">schema</span>.about</div>
+        <h2 class="section-title">Built for the messy middle of data.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm a <strong>B.Com (Honours)</strong> graduate from the <strong>University of Delhi</strong>, working across the full data stack — from raw source tables to the dashboard a manager actually opens every morning.</p>
+          <p>My flagship build is a <strong>fully automated ELT + AI pipeline</strong> on Google Cloud: 45+ dbt models, an 8-stage chained machine learning system, and a Gemini-powered content engine that runs unattended every night and lands on a live Power BI dashboard by sunrise.</p>
+          <p>Alongside the engineering, I hold the <strong>Microsoft Business Analyst Professional Certificate</strong> (avg. 94.8%) and have completed <strong>8 industry simulations</strong> with EY, PwC, BCG X, Quantium, and Deloitte — covering forensic investigation, M&A strategy, and technology risk.</p>
+        </div>
+        <div class="stat-list reveal">
+          <div class="stat-row"><span class="k">dbt models shipped</span><span class="v">45+</span></div>
+          <div class="stat-row"><span class="k">chained ML models</span><span class="v">8</span></div>
+          <div class="stat-row"><span class="k">industry simulations</span><span class="v">8</span></div>
+          <div class="stat-row"><span class="k">pipeline schedule</span><span class="v">01:30 → 02:30 IST</span></div>
+          <div class="stat-row"><span class="k">manual intervention</span><span class="v">zero</span></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="section-divider"></div>
-
-<!-- SKILLS CHARTS -->
-<section id="skills">
-  <span class="section-tag">// technical depth</span>
-  <h2 class="section-title">Skills <span>Visualised</span></h2>
-  <div class="section-line"></div>
-  <div class="skills-grid reveal">
-    <div class="chart-card">
-      <div class="chart-title">// skill radar — 8 dimensions</div>
-      <div class="chart-wrap"><canvas id="radarChart"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">// domain exposure — hours equivalent</div>
-      <div class="chart-wrap"><canvas id="domainChart"></canvas></div>
-    </div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px">
-    <div class="chart-card reveal">
-      <div class="chart-title">// ms ba certificate — course scores</div>
-      <div class="chart-wrap" style="height:240px"><canvas id="certChart"></canvas></div>
-    </div>
-    <div class="chart-card reveal">
-      <div class="chart-title">// tools & technologies</div>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;padding-top:12px">
-        <span class="tag">BigQuery SQL</span><span class="tag">dbt</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">K-Means</span><span class="tag">Apriori</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Streamlit</span><span class="tag gold">Power BI DAX</span><span class="tag gold">Tableau LOD</span><span class="tag gold">Looker Studio</span><span class="tag gold">VBA Macros</span><span class="tag">PostgreSQL</span><span class="tag">GCP</span><span class="tag">Prefect</span><span class="tag">Joblib</span><span class="tag gold">DCF Model</span><span class="tag gold">M&A Analysis</span><span class="tag gold">Three-Statement</span><span class="tag">A/B Testing</span><span class="tag">Uplift Testing</span><span class="tag">Hypothesis Testing</span>
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="schema-label"><span class="path">schema</span>.skills</div>
+        <h2 class="section-title">The stack, table by table.</h2>
+        <p class="section-sub">Grouped the way I actually use them — not a wall of logos.</p>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card reveal">
+          <h4>languages</h4>
+          <div class="pill-row">
+            <span class="pill">SQL (BigQuery)</span><span class="pill">PostgreSQL</span><span class="pill">MySQL</span>
+            <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">NumPy</span>
+            <span class="pill">Scikit-learn</span><span class="pill">R (ggplot2, dplyr)</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h4>bi &amp; visualisation</h4>
+          <div class="pill-row">
+            <span class="pill">Power BI (DAX)</span><span class="pill">Tableau (LOD)</span><span class="pill">Looker Studio</span>
+            <span class="pill">Advanced Excel</span><span class="pill">Power Query</span><span class="pill">Power Pivot</span><span class="pill">VBA Macros</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h4>data engineering &amp; mlops</h4>
+          <div class="pill-row">
+            <span class="pill">dbt Cloud</span><span class="pill">GitHub Actions CI/CD</span><span class="pill">Google Cloud Pub/Sub</span>
+            <span class="pill">Power Automate</span><span class="pill">Workload Identity Federation</span><span class="pill">Papermill</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h4>statistics &amp; ml</h4>
+          <div class="pill-row">
+            <span class="pill">Hypothesis / A-B Testing</span><span class="pill">XGBoost</span><span class="pill">K-Means</span>
+            <span class="pill">Apriori</span><span class="pill">SHAP</span><span class="pill">Regression</span><span class="pill">Classification</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h4>business analysis (ms visio)</h4>
+          <div class="pill-row">
+            <span class="pill">BRD</span><span class="pill">User Stories</span><span class="pill">UML</span><span class="pill">BPMN</span><span class="pill">DFD</span>
+            <span class="pill">ER Diagrams</span><span class="pill">Gap Analysis</span><span class="pill">RAID Log</span><span class="pill">Traceability Matrix</span>
+            <span class="pill">Sprint Planning</span><span class="pill">Kanban / Scrum</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h4>environments &amp; tools</h4>
+          <div class="pill-row">
+            <span class="pill">Jupyter Notebook</span><span class="pill">Google Colab</span><span class="pill">VS Code</span>
+            <span class="pill">Anaconda</span><span class="pill">draw.io</span><span class="pill">ChatGPT / Claude / Gemini</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="section-divider"></div>
+  <!-- FLAGSHIP PROJECT -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="schema-label"><span class="path">schema</span>.projects</div>
+        <h2 class="section-title">What I've shipped.</h2>
+      </div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <span class="section-tag">// built & deployed</span>
-  <h2 class="section-title">Analytics <span>Projects</span></h2>
-  <div class="section-line"></div>
-
-  <!-- FEATURED -->
-  <div class="project-featured reveal">
-    <div class="feat-badge">⭐ Flagship Project · May 2026</div>
-    <h3 class="feat-title">Enterprise E-Commerce ML & Analytics Pipeline</h3>
-    <div class="feat-stack">
-      <span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">GCP Compute Engine</span><span class="tag">dbt</span><span class="tag">K-Means</span><span class="tag">SHAP</span><span class="tag gold">Looker Studio</span><span class="tag gold">Streamlit</span><span class="tag gold">MLOps</span>
-    </div>
-    <div class="feat-metrics">
-      <div class="feat-metric"><span class="feat-metric-num">$10.76M</span><div class="feat-metric-label">Revenue Analysed</div></div>
-      <div class="feat-metric"><span class="feat-metric-num">79.84K</span><div class="feat-metric-label">Customers</div></div>
-      <div class="feat-metric"><span class="feat-metric-num">0.83</span><div class="feat-metric-label">XGBoost F1-Score</div></div>
-      <div class="feat-metric"><span class="feat-metric-num">95%</span><div class="feat-metric-label">Churn Recall</div></div>
-      <div class="feat-metric"><span class="feat-metric-num">4</span><div class="feat-metric-label">Looker Dashboards</div></div>
-    </div>
-    <ul class="feat-bullets">
-      <li>Architected 7-stage modular SQL pipeline in BigQuery (dbt) with LEAD() window functions, self-joins for market basket analysis, and cohort retention heatmaps</li>
-      <li>Built XGBoost Churn Prediction (F1: 0.83, 95% Recall) via GridSearchCV; applied SHAP to confirm <code style="color:var(--blue);font-family:'JetBrains Mono',monospace;font-size:12px">account_age_days</code> as #1 predictor</li>
-      <li>Segmented 79K customers into 4 RFM personas via K-Means Clustering — True VIPs avg LTV $615</li>
-      <li>Apriori market basket: 1.3× Lift for Maternity → Intimates cross-sell identified</li>
-      <li>Deployed production MLOps on GCP VM with Linux cron (daily 7:30 AM IST) + Streamlit portal for bulk CSV scoring</li>
-    </ul>
-    <div class="feat-links">
-      <a href="https://github.com/Skysushant7366/ecommerce-churn-pipeline" target="_blank" class="btn btn-outline" style="padding:10px 20px;font-size:13px">GitHub →</a>
-    </div>
-  </div>
-
-  <!-- SUB PROJECTS -->
-  <div class="projects-sub">
-    <div class="proj-card reveal reveal-delay-1">
-      <div class="proj-icon">📊</div>
-      <div class="proj-title">World Happiness Report Dashboard</div>
-      <div class="feat-stack" style="margin-bottom:12px"><span class="tag gold">Tableau</span><span class="tag gold">LOD</span><span class="tag gold">Story Points</span></div>
-      <p class="proj-desc">9 years of data (2015–2023) across 137+ countries. Quantified 2.9-point global happiness gap. Validated COVID-19 GDP impact with statistical trend analysis.</p>
-      <div class="proj-stats"><span class="proj-stat">137+ Countries</span><span class="proj-stat">14 Worksheets</span><span class="proj-stat">5 Story Points</span></div>
-      <div class="proj-links">
-        <a href="https://public.tableau.com/app/profile/sushant.yadav1271/viz/MyFinalProjectSushantYadav/Story1" target="_blank" class="link-btn">Live Dashboard ↗</a>
+      <div class="flagship reveal">
+        <span class="flagship-tag">flagship build</span>
+        <h3>AI Omnichannel E-Commerce Intelligence Platform</h3>
+        <p>A fully automated, self-refreshing ELT + AI pipeline. 45+ dbt SQL models rebuild an isolated production dataset nightly; an 8-stage chained ML system scores every customer for fraud, churn, LTV, and price sensitivity; a 5-phase business engine turns those scores into margin and discount decisions; Gemini writes the marketing copy — and a live Power BI dashboard is waiting by morning. Zero manual steps.</p>
+        <div class="flow-chain">
+          <span class="flow-step">BigQuery source</span><span class="flow-arrow">→</span>
+          <span class="flow-step">dbt (45+ models)</span><span class="flow-arrow">→</span>
+          <span class="flow-step">GitHub Actions 02:30</span><span class="flow-arrow">→</span>
+          <span class="flow-step">8-link ML chain</span><span class="flow-arrow">→</span>
+          <span class="flow-step">5-phase engine</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Gemini copywriter</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Power BI</span>
+        </div>
+        <div class="flagship-links">
+          <a class="btn btn-primary" href="https://github.com/Skysushant7366/ecommerce-etl-pipeline" target="_blank" rel="noopener">GitHub repo ↗</a>
+          <a class="btn btn-ghost" href="https://drive.google.com/file/d/1BpBaR_uQ6jfdwuJByN6FaYOOl_-RHXEb/view?usp=sharing" target="_blank" rel="noopener">Architecture diagram ↗</a>
+        </div>
       </div>
     </div>
-    <div class="proj-card reveal reveal-delay-2">
-      <div class="proj-icon">🗺️</div>
-      <div class="proj-title">NYC Airbnb Pricing Analysis</div>
-      <div class="feat-stack" style="margin-bottom:12px"><span class="tag gold">Tableau</span><span class="tag">LOD Expressions</span><span class="tag">Parameters</span></div>
-      <p class="proj-desc">48,895 listings across 5 NYC boroughs. Surfaced 34× revenue gap (Manhattan $1.88M vs Bronx $55K) using LOD expressions and parameter-driven filters.</p>
-      <div class="proj-stats"><span class="proj-stat">48,895 Listings</span><span class="proj-stat">34× Gap Found</span></div>
-      <div class="proj-links">
-        <a href="https://public.tableau.com/app/profile/sushant.yadav1271/viz/MyFinalProjectSushantYadav_17754620561430/NYPMap" target="_blank" class="link-btn">Live Map ↗</a>
+  </section>
+
+  <!-- PROJECT GRID -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="project-grid">
+
+        <div class="pcard reveal">
+          <div class="ptag">BIGQUERY ML · FORENSICS</div>
+          <h4>Bank Fraud Detection &amp; Risk Monitoring Dashboard</h4>
+          <p>BigQuery ML XGBoost classifier layered with a 15-technique forensic ensemble; automated end-to-end via GitHub Actions with OIDC auth, zero static keys.</p>
+          <a class="plink" href="https://lookerstudio.google.com/reporting/e7c17762-682b-4ac6-a7a2-87575e63a76f" target="_blank" rel="noopener">View dashboard ↗</a>
+        </div>
+
+        <div class="pcard reveal">
+          <div class="ptag">BCG X · DATA SCIENCE SIMULATION</div>
+          <h4>SME Churn Prediction — PowerCo</h4>
+          <p>Random Forest model on a 14.6K-customer base (193K price records, 1:9.3 class imbalance); engineered a 63-feature price-sensitivity matrix, 90.3% accuracy.</p>
+          <a class="plink" href="https://github.com/Skysushant7366/BCGxData-Science" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="pcard reveal">
+          <div class="ptag">BCG X · GENAI SIMULATION</div>
+          <h4>SEC Filing Financial Chatbot</h4>
+          <p>Rule-based NLP chatbot (Python, Regex, Pandas) parsing 10-K filings for Apple, Microsoft &amp; Tesla — dynamic multi-company ratio comparisons.</p>
+          <a class="plink" href="https://github.com/Skysushant7366/BCGxGEN-AI" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="pcard reveal">
+          <div class="ptag">PWC US · CONSULTING SIMULATION</div>
+          <h4>Microsoft FY25 M&amp;A Synergy Model</h4>
+          <p>3-scenario synergy model on Microsoft's $281.7B FY2025 revenue, projecting a $9.95M–$18.3M EBIT step-up from a proposed divestiture.</p>
+          <a class="plink" href="https://github.com/Skysushant7366/PwC-Management-Consulting-Simulation" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="pcard reveal">
+          <div class="ptag">EY · FORENSIC &amp; TECH RISK</div>
+          <h4>Asset Reconciliation &amp; ITGC Review</h4>
+          <p>Applied the Fraud Triangle to a $24M personal-asset reconciliation; evaluated IT General Controls, documenting 5+ control gaps.</p>
+          <a class="plink" href="https://github.com/Skysushant7366/EY-Forensic-Integrity-Services-and-Technology-Risk-IT-Job-Simulation" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="pcard reveal">
+          <div class="ptag">DELOITTE AUSTRALIA · ANALYTICS</div>
+          <h4>Factory Telemetry &amp; Pay-Equity Dashboard</h4>
+          <p>Tableau dashboard across 4 factories / 9 machine types; engineered a nested-IF gender pay-equity scoring model.</p>
+          <a class="plink" href="https://github.com/Skysushant7366/Deloitte-Forensic-Data-Analytics-Portfolio" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="pcard reveal">
+          <div class="ptag">QUANTIUM · DATA ANALYTICS</div>
+          <h4>Retail Trial-Store Uplift Analysis</h4>
+          <p>Segmented 264,836 transactions in R; ran a Welch t-test to validate pricing strategy and recommend a trial-store rollout.</p>
+          <a class="plink" href="https://github.com/Skysushant7366/Quantium-R" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="pcard reveal">
+          <div class="ptag">POWER BI</div>
+          <h4>Zomato Sales Analytics Dashboard</h4>
+          <p>Restaurant sales, revenue drivers, and rating trends surfaced in an interactive Power BI dashboard.</p>
+          <a class="plink" href="https://github.com/Skysushant7366/Zomato-Sales-Analytics" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="pcard reveal">
+          <div class="ptag">PYTHON · POWER BI</div>
+          <h4>Bank Marketing Analytics Dashboard</h4>
+          <p>Analysed 40,000+ campaign records in Python; built Power BI conversion-funnel KPIs for a marketing team.</p>
+          <a class="plink" href="https://github.com/Skysushant7366/Bank_Marketing_Analysis" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
       </div>
     </div>
-    <div class="proj-card reveal reveal-delay-3">
-      <div class="proj-icon">🏦</div>
-      <div class="proj-title">Bank Marketing Analytics</div>
-      <div class="feat-stack" style="margin-bottom:12px"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag gold">Power BI</span></div>
-      <p class="proj-desc">Cleaned 40,000+ campaign records. Built Power BI KPI dashboards for conversion funnels. Delivered segment-level targeting improvements.</p>
-      <div class="proj-stats"><span class="proj-stat">40K+ Records</span><span class="proj-stat">KPI Dashboards</span></div>
-      <div class="proj-links">
-        <a href="https://github.com/Skysushant7366/Bank_Marketing_Analysis" target="_blank" class="link-btn">GitHub ↗</a>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section" id="certs">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="schema-label"><span class="path">schema</span>.certifications</div>
+        <h2 class="section-title">Credentials on record.</h2>
+      </div>
+      <div class="cert-list reveal">
+        <div class="cert-row">
+          <a class="cname" href="https://www.coursera.org/account/accomplishments/professional-cert/EH3E9S28NL2X" target="_blank" rel="noopener">Microsoft Business Analyst Professional Certificate</a>
+          <span class="cmeta">Microsoft / Coursera · 6 courses · avg. 94.8% · Mar 2026</span>
+        </div>
+        <div class="cert-row">
+          <a class="cname" href="https://www.coursera.org/account/accomplishments/certificate/AXKK2HDIZO8W" target="_blank" rel="noopener">Python for Data Science, AI &amp; Development</a>
+          <span class="cmeta">IBM / Coursera · Apr 2026</span>
+        </div>
+        <div class="cert-row">
+          <a class="cname" href="https://www.coursera.org/account/accomplishments/certificate/WF72IC35O6PH" target="_blank" rel="noopener">Advanced Data Visualisation with Tableau</a>
+          <span class="cmeta">SkillUp / Coursera · Apr 2026</span>
+        </div>
+        <div class="cert-row">
+          <a class="cname" href="https://www.coursera.org/account/accomplishments/certificate/15GPZ8285UXL" target="_blank" rel="noopener">Advanced Excel &amp; VBA Macros</a>
+          <span class="cmeta">Coursera · Jan 2026</span>
+        </div>
+        <div class="cert-row">
+          <a class="cname" href="https://trainings.internshala.com/s/v/3828138/42c858af" target="_blank" rel="noopener">Financial Modelling &amp; Valuation with AI</a>
+          <span class="cmeta">Internshala · Dec 2025</span>
+        </div>
+        <div class="cert-row">
+          <a class="cname" href="https://trainings.internshala.com/s/v/3804288/e8dea1c6" target="_blank" rel="noopener">Machine Learning with AI</a>
+          <span class="cmeta">Internshala · Oct 2025</span>
+        </div>
+        <div class="cert-row">
+          <a class="cname" href="https://trainings.internshala.com/s/v/3812307/5fea0c77" target="_blank" rel="noopener">Tally Basics &amp; Accounting</a>
+          <span class="cmeta">Grade A · NSDC / Skill India · Nov 2025</span>
+        </div>
       </div>
     </div>
-    <div class="proj-card reveal reveal-delay-1">
-      <div class="proj-icon">💹</div>
-      <div class="proj-title">Automated Stock Pipeline</div>
-      <div class="feat-stack" style="margin-bottom:12px"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">yfinance</span><span class="tag">SMTP</span></div>
-      <p class="proj-desc">Fetches 10 tickers daily, computes 8 indicators (RSI, SMA-10/50/200, volatility), stores in PostgreSQL, sends Gmail alert. 100% automated, zero manual steps.</p>
-      <div class="proj-stats"><span class="proj-stat">10 Tickers</span><span class="proj-stat">8 Indicators</span><span class="proj-stat">Daily 18:00 IST</span></div>
-      <div class="proj-links">
-        <a href="https://github.com/Skysushant7366/stock-pipeline" target="_blank" class="link-btn">GitHub ↗</a>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <h2>Let's talk data.</h2>
+        <p>B.Com (Honours), University of Delhi · New Delhi, India · Available for immediate joining.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:skysushantm416@gmail.com">Email me ↗</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/sushantkumaryadav310899" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn btn-ghost" href="https://github.com/Skysushant7366" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
     </div>
-    <div class="proj-card reveal reveal-delay-2">
-      <div class="proj-icon">🔍</div>
-      <div class="proj-title">EY Forensic & IT Risk Portfolio</div>
-      <div class="feat-stack" style="margin-bottom:12px"><span class="tag">Fraud Triangle</span><span class="tag">ITGC</span><span class="tag">Risk Analysis</span></div>
-      <p class="proj-desc">Reconciled $100K salary vs $24M asset portfolio. Phantom suppliers across India & China. Evaluated ITGC — flagged 5+ control gaps in UAT & change-management.</p>
-      <div class="proj-stats"><span class="proj-stat">$24M Discrepancy</span><span class="proj-stat">5+ Control Gaps</span></div>
-      <div class="proj-links">
-        <a href="https://github.com/Skysushant7366/EY-Forensic-Integrity-Services-and-Technology-Risk-IT-Job-Simulation" target="_blank" class="link-btn">GitHub ↗</a>
-      </div>
-    </div>
-    <div class="proj-card reveal reveal-delay-3">
-      <div class="proj-icon">🍕</div>
-      <div class="proj-title">Zomato Sales Analytics</div>
-      <div class="feat-stack" style="margin-bottom:12px"><span class="tag">Python</span><span class="tag">EDA</span><span class="tag gold">Power BI</span></div>
-      <p class="proj-desc">Restaurant sales analytics on Zomato dataset. EDA, visualisations on ordering patterns, restaurant performance, and city-level revenue drivers.</p>
-      <div class="proj-stats"><span class="proj-stat">EDA Analysis</span><span class="proj-stat">City-Level Insights</span></div>
-      <div class="proj-links">
-        <a href="https://github.com/Skysushant7366/Zomato-Sales-Analytics" target="_blank" class="link-btn">GitHub ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<div class="section-divider"></div>
-
-<!-- SIMULATIONS -->
-<section id="simulations">
-  <div class="sim-header">
-    <div class="reveal">
-      <span class="section-tag">// industry experience</span>
-      <h2 class="section-title">8 Forage <span>Simulations</span></h2>
-      <div class="section-line"></div>
-      <p style="color:#64748B;font-size:15px;line-height:1.8">Completed simulations with the world's top consulting and analytics firms via Forage. Each simulation involved real-world datasets, business problems, and deliverables — not just coursework.</p>
-    </div>
-    <div class="sim-chart-wrap reveal reveal-delay-2">
-      <div class="chart-title">// simulation activity — April 2026 sprint</div>
-      <div class="chart-wrap" style="height:220px"><canvas id="simTimeline"></canvas></div>
-    </div>
-  </div>
-
-  <div class="sim-grid">
-    <div class="sim-card reveal">
-      <div class="sim-company">BCG X · Forage</div>
-      <div class="sim-title">Data Science Job Simulation</div>
-      <div class="sim-date">April 18, 2026</div>
-      <ul class="sim-bullets">
-        <li>PowerCo: 14,600 SME customers, 9.72% churn rate</li>
-        <li>EDA disproved price as driver — identified net margin & consumption</li>
-        <li>Random Forest: 81% precision, 4.6% recall (9:1 class imbalance)</li>
-        <li>21 high-risk customers flagged (max 98.5% churn probability)</li>
-      </ul>
-      <a href="https://www.theforage.com/completion-certificates/SKZxezskWgmFjRvj9/Tcz8gTtprzAS4xSoK_SKZxezskWgmFjRvj9_AoDY2mefoW92uREDm_1776547285771_completion_certificate.pdf" target="_blank" class="sim-cert-link">🏅 View Certificate ↗</a>
-    </div>
-
-    <div class="sim-card reveal reveal-delay-1">
-      <div class="sim-company">BCG X · Forage</div>
-      <div class="sim-title">GenAI Job Simulation</div>
-      <div class="sim-date">April 16, 2026</div>
-      <ul class="sim-bullets">
-        <li>Analysed Apple, Microsoft, Tesla FY2023–2025 — 9 rows, 7 derived features</li>
-        <li>Microsoft: 15.3% avg revenue growth, 35.4% net margin</li>
-        <li>Built rule-based AI financial chatbot (~200 lines) — 7 query types</li>
-        <li>6-panel matplotlib dashboard (dpi=150)</li>
-      </ul>
-      <a href="https://www.theforage.com/completion-certificates/SKZxezskWgmFjRvj9/gabev3vXhuACr48eb_SKZxezskWgmFjRvj9_AoDY2mefoW92uREDm_1776359924909_completion_certificate.pdf" target="_blank" class="sim-cert-link">🏅 View Certificate ↗</a>
-    </div>
-
-    <div class="sim-card reveal">
-      <div class="sim-company">Quantium · Forage</div>
-      <div class="sim-title">Data Analytics Simulation</div>
-      <div class="sim-date">April 12, 2026</div>
-      <ul class="sim-bullets">
-        <li>264,836 chip transactions — 7 lifestages × 3 premium tiers</li>
-        <li>Welch t-test: Mainstream singles $4.04 vs $3.69 (p &lt; 2.2e-16)</li>
-        <li>Control-store selection via correlation scoring & magnitude-distance</li>
-        <li>Rollout recommended for stores 77 and 88 via t-distribution testing</li>
-      </ul>
-      <a href="https://www.theforage.com/completioncertificates/32A6DqtsbF7LbKdcq/NkaC7knWtjSbi6aYv_32A6DqtsbF7LbKdcq_AoDY2mefoW92uREDm_1775969919044_completion_certificate.pdf" target="_blank" class="sim-cert-link">🏅 View Certificate ↗</a>
-    </div>
-
-    <div class="sim-card reveal reveal-delay-1">
-      <div class="sim-company">PwC US · Forage</div>
-      <div class="sim-title">Management Consulting Simulation</div>
-      <div class="sim-date">April 13, 2026</div>
-      <ul class="sim-bullets">
-        <li>Microsoft FY2025: $281.7B revenue, 57.7% EBITDA, Azure +34% YoY</li>
-        <li>3-scenario M&A synergy model: $9.95M–$18.3M EBIT step-up</li>
-        <li>18-question CFO interview guide across 6 divestiture pillars</li>
-      </ul>
-      <a href="https://www.theforage.com/completioncertificates/CA4pBqsy4b4PdyaBP/douE8ih9jWMQ2P7sS_CA4pBqsy4b4PdyaBP_AoDY2mefoW92uREDm_1776094502872_completion_certificate.pdf" target="_blank" class="sim-cert-link">🏅 View Certificate ↗</a>
-      <a href="https://github.com/Skysushant7366/PwC-Management-Consulting-Simulation" target="_blank" class="link-btn" style="margin-top:10px;display:inline-flex">GitHub ↗</a>
-    </div>
-
-    <div class="sim-card reveal">
-      <div class="sim-company">EY · Forage</div>
-      <div class="sim-title">Forensic & Integrity Services</div>
-      <div class="sim-date">April 7, 2026</div>
-      <ul class="sim-bullets">
-        <li>Fraud Triangle: $100K monthly salary vs $24M personal asset portfolio</li>
-        <li>Phantom supplier schemes identified across India & China operations</li>
-        <li>Cross-border evidence documentation from whistleblower reports</li>
-      </ul>
-      <a href="https://www.theforage.com/completioncertificates/Z3pPDqCPapFTSGBgi/G4Kp6b2rhsyavQdaa_Z3pPDqCPapFTSGBgi_AoDY2mefoW92uREDm_1775582845967_completion_certificate.pdf" target="_blank" class="sim-cert-link">🏅 View Certificate ↗</a>
-    </div>
-
-    <div class="sim-card reveal reveal-delay-1">
-      <div class="sim-company">EY · Forage</div>
-      <div class="sim-title">Technology Risk Simulation</div>
-      <div class="sim-date">April 14, 2026</div>
-      <ul class="sim-bullets">
-        <li>Evaluated ITGC: Manage Access, Manage Changes, IT Operations</li>
-        <li>5+ control gaps documented in UAT independence & change-management</li>
-        <li>Structured remediation recommendations using assessment frameworks</li>
-      </ul>
-      <a href="https://www.theforage.com/completioncertificates/Z3pPDqCPapFTSGBgi/25RAqjzJnD3b8YPZv_Z3pPDqCPapFTSGBgi_AoDY2mefoW92uREDm_1776164458653_completion_certificate.pdf" target="_blank" class="sim-cert-link">🏅 View Certificate ↗</a>
-    </div>
-
-    <div class="sim-card reveal" style="grid-column:1/-1;max-width:50%">
-      <div class="sim-company">Deloitte Australia · Forage</div>
-      <div class="sim-title">Data Analytics Simulation</div>
-      <div class="sim-date">August 26, 2025</div>
-      <ul class="sim-bullets">
-        <li>IoT telemetry: 4 factories, 9 machine types across facilities</li>
-        <li>Tableau: Daikibo Shenzhen — 420 unhealthy units (highest downtime)</li>
-        <li>Nested-IF classification: gender pay equity scoring (–100 to +100)</li>
-      </ul>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_AoDY2mefoW92uREDm_1756231925955_completion_certificate.pdf" target="_blank" class="sim-cert-link">🏅 View Certificate ↗</a>
-        <a href="https://github.com/Skysushant7366/Deloitte-Forensic-Data-Analytics-Portfolio" target="_blank" class="link-btn" style="display:inline-flex;align-items:center">GitHub ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <span class="section-tag">// verified credentials</span>
-  <h2 class="section-title">Certifi<span>cations</span></h2>
-  <div class="section-line"></div>
-
-  <div class="certs-grid">
-    <div class="cert-card reveal">
-      <div class="cert-issuer">Microsoft · Coursera</div>
-      <div class="cert-name">Business Analyst Professional Certificate</div>
-      <div class="cert-meta">March 27, 2026 · 6 Courses · ~97 hours</div>
-      <div class="cert-score">94.8% Average</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.7">Business Analysis Fundamentals · Data for Business Analysts Using Excel · Data & Business Process Modelling with Visio · Requirements Gathering · Power Platform · Project Delivery & Capstone</div>
-      <a href="https://www.coursera.org/account/accomplishments/professional-cert/EH3E9S28NL2X" target="_blank" class="cert-verify">↗ Verify Certificate</a>
-    </div>
-    <div class="cert-card reveal reveal-delay-1">
-      <div class="cert-issuer">IBM · Coursera</div>
-      <div class="cert-name">Python for Data Science, AI & Development</div>
-      <div class="cert-meta">2026</div>
-      <a href="https://www.coursera.org/account/accomplishments/certificate/AXKK2HDIZO8W" target="_blank" class="cert-verify">↗ Verify Certificate</a>
-    </div>
-    <div class="cert-card reveal reveal-delay-2">
-      <div class="cert-issuer">SkillUp · Coursera</div>
-      <div class="cert-name">Advanced Data Visualisation with Tableau</div>
-      <div class="cert-meta">April 2026</div>
-      <a href="https://www.coursera.org/account/accomplishments/certificate/WF72IC35O6PH" target="_blank" class="cert-verify">↗ Verify Certificate</a>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-issuer">Coursera</div>
-      <div class="cert-name">Advanced Excel & VBA Macros</div>
-      <div class="cert-meta">January 2026</div>
-      <a href="https://www.coursera.org/account/accomplishments/certificate/15GPZ8285UXL" target="_blank" class="cert-verify">↗ Verify Certificate</a>
-    </div>
-    <div class="cert-card reveal reveal-delay-1">
-      <div class="cert-issuer">Internshala</div>
-      <div class="cert-name">Financial Modelling & Valuation with AI</div>
-      <div class="cert-meta">December 2025 · DCF, Three-Statement</div>
-      <a href="https://trainings.internshala.com/s/v/3828138/42c858af" target="_blank" class="cert-verify">↗ Verify Certificate</a>
-    </div>
-    <div class="cert-card reveal reveal-delay-2">
-      <div class="cert-issuer">Internshala</div>
-      <div class="cert-name">Machine Learning with AI</div>
-      <div class="cert-meta">October 2025 · Regression, Classification, Clustering</div>
-      <a href="https://trainings.internshala.com/s/v/3812307/5fea0c77" target="_blank" class="cert-verify">↗ Verify Certificate</a>
-    </div>
-  </div>
-
-  <!-- FORAGE MINI CERTS -->
-  <div style="margin-top:60px">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px">// forage simulation certificates</div>
-    <div class="forage-grid">
-      <div class="forage-mini reveal">
-        <div class="forage-co">Quantium</div>
-        <div class="forage-sim">Data Analytics</div>
-        <div class="forage-date">April 12, 2026</div>
-        <a href="https://www.theforage.com/completioncertificates/32A6DqtsbF7LbKdcq/NkaC7knWtjSbi6aYv_32A6DqtsbF7LbKdcq_AoDY2mefoW92uREDm_1775969919044_completion_certificate.pdf" target="_blank" class="forage-link">🏅 View</a>
-      </div>
-      <div class="forage-mini reveal reveal-delay-1">
-        <div class="forage-co">BCG X</div>
-        <div class="forage-sim">Data Science</div>
-        <div class="forage-date">April 18, 2026</div>
-        <a href="https://www.theforage.com/completion-certificates/SKZxezskWgmFjRvj9/Tcz8gTtprzAS4xSoK_SKZxezskWgmFjRvj9_AoDY2mefoW92uREDm_1776547285771_completion_certificate.pdf" target="_blank" class="forage-link">🏅 View</a>
-      </div>
-      <div class="forage-mini reveal reveal-delay-2">
-        <div class="forage-co">BCG X</div>
-        <div class="forage-sim">GenAI Simulation</div>
-        <div class="forage-date">April 16, 2026</div>
-        <a href="https://www.theforage.com/completion-certificates/SKZxezskWgmFjRvj9/gabev3vXhuACr48eb_SKZxezskWgmFjRvj9_AoDY2mefoW92uREDm_1776359924909_completion_certificate.pdf" target="_blank" class="forage-link">🏅 View</a>
-      </div>
-      <div class="forage-mini reveal reveal-delay-3">
-        <div class="forage-co">PwC US</div>
-        <div class="forage-sim">Management Consulting</div>
-        <div class="forage-date">April 13, 2026</div>
-        <a href="https://www.theforage.com/completioncertificates/CA4pBqsy4b4PdyaBP/douE8ih9jWMQ2P7sS_CA4pBqsy4b4PdyaBP_AoDY2mefoW92uREDm_1776094502872_completion_certificate.pdf" target="_blank" class="forage-link">🏅 View</a>
-      </div>
-      <div class="forage-mini reveal">
-        <div class="forage-co">EY</div>
-        <div class="forage-sim">Forensic & Integrity</div>
-        <div class="forage-date">April 7, 2026</div>
-        <a href="https://www.theforage.com/completioncertificates/Z3pPDqCPapFTSGBgi/G4Kp6b2rhsyavQdaa_Z3pPDqCPapFTSGBgi_AoDY2mefoW92uREDm_1775582845967_completion_certificate.pdf" target="_blank" class="forage-link">🏅 View</a>
-      </div>
-      <div class="forage-mini reveal reveal-delay-1">
-        <div class="forage-co">EY</div>
-        <div class="forage-sim">Technology Risk</div>
-        <div class="forage-date">April 14, 2026</div>
-        <a href="https://www.theforage.com/completioncertificates/Z3pPDqCPapFTSGBgi/25RAqjzJnD3b8YPZv_Z3pPDqCPapFTSGBgi_AoDY2mefoW92uREDm_1776164458653_completion_certificate.pdf" target="_blank" class="forage-link">🏅 View</a>
-      </div>
-      <div class="forage-mini reveal reveal-delay-2">
-        <div class="forage-co">Deloitte Australia</div>
-        <div class="forage-sim">Data Analytics</div>
-        <div class="forage-date">August 26, 2025</div>
-        <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_AoDY2mefoW92uREDm_1756231925955_completion_certificate.pdf" target="_blank" class="forage-link">🏅 View</a>
-      </div>
-      <div class="forage-mini reveal reveal-delay-3">
-        <div class="forage-co">NSDC · Skill India</div>
-        <div class="forage-sim">Tally & Accounting</div>
-        <div class="forage-date">November 2025 · Grade A</div>
-        <a href="https://trainings.internshala.com/s/v/3804288/e8dea1c6" target="_blank" class="forage-link">🏅 View</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-inner reveal">
-    <span class="section-tag">// get in touch</span>
-    <h2 class="section-title">Let's Build<br><span>Something Real</span></h2>
-    <div class="section-line" style="margin:0 auto 28px"></div>
-    <p>Actively looking for <strong>Data Analyst, Business Analyst, or Financial Analyst</strong> roles in Delhi NCR or remote. Available for immediate joining.</p>
-    <div class="contact-links">
-      <a href="https://linkedin.com/in/sushantkumaryadav310899" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
-      <a href="https://github.com/Skysushant7366" target="_blank" class="contact-link"><span>⚙️</span> GitHub</a>
-      <a href="mailto:skysushantm416@gmail.com" class="contact-link"><span>📧</span> Email</a>
-      <a href="tel:+919990587366" class="contact-link"><span>📱</span> +91 99905 87366</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">S<span>K</span>Y</div>
-  <div class="footer-text">© 2026 Sushant Kumar Yadav · New Delhi, India</div>
-  <div class="footer-text" style="color:var(--green)">● Available for Immediate Joining</div>
-</footer>
+<footer>© 2026 Sushant Kumar Yadav · built with dbt, coffee, and one too many CI/CD reruns</footer>
 
 <script>
-// --- CURSOR ---
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  setTimeout(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; }, 80);
-});
-document.querySelectorAll('a,button,.proj-card,.sim-card,.cert-card').forEach(el => {
-  el.addEventListener('mouseenter', () => ring.classList.add('expand'));
-  el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
-});
-
-// --- NEURAL NETWORK CANVAS ---
-const canvas = document.getElementById('neural');
-const ctx = canvas.getContext('2d');
-let W, H, particles;
-function initCanvas() {
-  W = canvas.width = canvas.offsetWidth;
-  H = canvas.height = canvas.offsetHeight;
-  particles = Array.from({length: 80}, () => ({
-    x: Math.random()*W, y: Math.random()*H,
-    vx: (Math.random()-.5)*.4, vy: (Math.random()-.5)*.4,
-    r: Math.random()*2+1
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
   }));
-}
-function drawNeural() {
-  ctx.clearRect(0,0,W,H);
-  particles.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    if(p.x<0||p.x>W) p.vx*=-1;
-    if(p.y<0||p.y>H) p.vy*=-1;
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle='rgba(56,189,248,0.6)';
-    ctx.fill();
-  });
-  for(let i=0;i<particles.length;i++) {
-    for(let j=i+1;j<particles.length;j++) {
-      const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
-      const dist=Math.sqrt(dx*dx+dy*dy);
-      if(dist<130) {
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x,particles[i].y);
-        ctx.lineTo(particles[j].x,particles[j].y);
-        ctx.strokeStyle=`rgba(56,189,248,${0.15*(1-dist/130)})`;
-        ctx.lineWidth=.5;
-        ctx.stroke();
+
+  // Hero typing effect
+  const query = `<span class="kw">SELECT</span> name, title, location\n<span class="kw">FROM</span> <span class="fn">professionals</span>\n<span class="kw">WHERE</span> stack = <span class="str">'dbt + BigQuery + Python + GenAI'</span>\n  <span class="kw">AND</span> availability = <span class="str">'immediate'</span>;`;
+  const target = document.getElementById('typedQuery');
+  const cursor = document.getElementById('cursorBlink');
+  const resultRow = document.getElementById('resultRow');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function typeQuery(){
+    if(reduced){ target.innerHTML = query; resultRow.classList.add('show'); return; }
+    let i = 0;
+    const plain = query; // contains html tags; type by revealing substring of source, safe since it's fixed content
+    const chars = query.split('');
+    function step(){
+      target.innerHTML = chars.slice(0, i).join('');
+      i++;
+      if(i <= chars.length){
+        setTimeout(step, 9);
+      } else {
+        cursor.style.display = 'none';
+        setTimeout(()=> resultRow.classList.add('show'), 200);
       }
     }
+    step();
   }
-  requestAnimationFrame(drawNeural);
-}
-initCanvas();
-drawNeural();
-window.addEventListener('resize', initCanvas);
+  window.addEventListener('load', typeQuery);
 
-// --- COUNTER ANIMATION ---
-function animateCounters() {
-  document.querySelectorAll('.stat-num[data-target]').forEach(el => {
-    const target = parseInt(el.dataset.target);
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
-    let current = 0;
-    const duration = 2000;
-    const step = target / (duration / 16);
-    const timer = setInterval(() => {
-      current = Math.min(current + step, target);
-      if(target > 1000) el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
-      else el.textContent = prefix + Math.floor(current) + suffix;
-      if(current >= target) clearInterval(timer);
-    }, 16);
-  });
-}
-
-// --- SCROLL REVEAL ---
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      // Animate stack bars when about section visible
-      if(entry.target.querySelector && entry.target.querySelector('.stack-bar-fill')) {
-        setTimeout(() => {
-          entry.target.querySelectorAll('.stack-bar-fill').forEach(b => b.style.transform = 'scaleX(1)');
-        }, 200);
-      }
-    }
-  });
-}, {threshold: 0.1});
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Stats strip observer
-const statsObserver = new IntersectionObserver(entries => {
-  if(entries[0].isIntersecting) { animateCounters(); statsObserver.disconnect(); }
-}, {threshold: 0.5});
-statsObserver.observe(document.querySelector('.stats-strip'));
-
-// Stack bars trigger
-const aboutObserver = new IntersectionObserver(entries => {
-  if(entries[0].isIntersecting) {
-    setTimeout(() => {
-      document.querySelectorAll('.stack-bar-fill').forEach(b => b.style.transform = 'scaleX(1)');
-    }, 400);
-    aboutObserver.disconnect();
-  }
-}, {threshold: 0.3});
-aboutObserver.observe(document.querySelector('.about-panel'));
-
-// --- CHARTS ---
-Chart.defaults.color = '#64748B';
-Chart.defaults.font.family = "'JetBrains Mono', monospace";
-
-// Radar
-new Chart(document.getElementById('radarChart'), {
-  type: 'radar',
-  data: {
-    labels: ['SQL', 'Python', 'Power BI', 'Tableau', 'R', 'Excel/VBA', 'ML/AI', 'Financial\nModelling'],
-    datasets: [{
-      label: 'Proficiency',
-      data: [85, 90, 82, 85, 75, 88, 72, 78],
-      borderColor: '#38BDF8',
-      backgroundColor: 'rgba(56,189,248,0.12)',
-      borderWidth: 2,
-      pointBackgroundColor: '#38BDF8',
-      pointBorderColor: '#05081A',
-      pointRadius: 5
-    }]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    scales: {
-      r: {
-        min:0, max:100,
-        ticks: { display:false, stepSize:20 },
-        grid: { color:'rgba(56,189,248,0.1)' },
-        angleLines: { color:'rgba(56,189,248,0.1)' },
-        pointLabels: { color:'#94A3B8', font:{size:11} }
-      }
-    },
-    plugins: { legend:{ display:false } }
-  }
-});
-
-// Domain bar chart
-new Chart(document.getElementById('domainChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Finance & M&A', 'Retail & E-Comm', 'Forensics', 'Manufacturing', 'Public Policy', 'Aviation'],
-    datasets: [{
-      label: 'Exposure Score',
-      data: [90, 95, 75, 65, 60, 40],
-      backgroundColor: ['rgba(245,158,11,0.8)','rgba(56,189,248,0.8)','rgba(239,68,68,0.8)','rgba(168,85,247,0.8)','rgba(16,185,129,0.8)','rgba(99,102,241,0.8)'],
-      borderRadius: 6, borderSkipped: false
-    }]
-  },
-  options: {
-    indexAxis:'y', responsive:true, maintainAspectRatio:false,
-    scales: {
-      x: { grid:{ color:'rgba(255,255,255,0.05)' }, ticks:{color:'#64748B'}, max:100 },
-      y: { grid:{ display:false }, ticks:{color:'#94A3B8', font:{size:11}} }
-    },
-    plugins:{ legend:{display:false} }
-  }
-});
-
-// BA Cert chart
-new Chart(document.getElementById('certChart'), {
-  type: 'bar',
-  data: {
-    labels: ['BA Fund.','Excel Data','Visio','Req. Gath.','Power Plat.','Capstone'],
-    datasets: [{
-      data: [96.66, 93, 96, 94.83, 97.91, 91.66],
-      backgroundColor: 'rgba(245,158,11,0.7)',
-      borderColor: '#F59E0B',
-      borderWidth: 1,
-      borderRadius: 5
-    }]
-  },
-  options: {
-    responsive:true, maintainAspectRatio:false,
-    scales: {
-      y: { min:85, max:100, grid:{ color:'rgba(255,255,255,0.05)' }, ticks:{color:'#64748B', callback:v=>v+'%'} },
-      x: { grid:{ display:false }, ticks:{ color:'#94A3B8', font:{size:10}, maxRotation:30 } }
-    },
-    plugins: {
-      legend:{display:false},
-      tooltip:{ callbacks:{ label: ctx => ctx.raw + '%' } }
-    }
-  }
-});
-
-// Simulation timeline
-new Chart(document.getElementById('simTimeline'), {
-  type:'bar',
-  data:{
-    labels:['Deloitte\nAug\'25','EY Forensic\nApr 7','BCG GenAI\nApr 16','PwC\nApr 13','Quantium\nApr 12','EY Tech\nApr 14','BCG DS\nApr 18'],
-    datasets:[{
-      label:'Simulation',
-      data:[3,4,5,4,5,4,5],
-      backgroundColor:['rgba(245,158,11,0.7)','rgba(239,68,68,0.7)','rgba(168,85,247,0.7)','rgba(56,189,248,0.7)','rgba(16,185,129,0.7)','rgba(239,68,68,0.7)','rgba(168,85,247,0.7)'],
-      borderRadius:6, borderSkipped:false
-    }]
-  },
-  options:{
-    responsive:true, maintainAspectRatio:false,
-    scales:{
-      y:{display:false,max:7},
-      x:{grid:{display:false},ticks:{color:'#64748B',font:{size:9}}}
-    },
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:()=>'Completed'}}}
-  }
-});
-
-// Smooth nav
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t) t.scrollIntoView({behavior:'smooth'});
-  });
-});
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+
 </body>
 </html>
