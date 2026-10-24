@@ -2,571 +2,368 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sushant Kumar Yadav — Data & Business Analyst</title>
-<meta name="description" content="Sushant Kumar Yadav — Data Analyst, Business Analyst & Analytics Engineer. dbt, BigQuery, Python, Power BI, GenAI pipelines.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sushant Kumar Yadav, Data & Financial Analyst</title>
+<meta name="description" content="Sushant Kumar Yadav is a fresher Data & Financial Analyst in New Delhi. SQL, Power BI, Python, BigQuery and dbt. Case studies with measured business results.">
+<meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0A0E14;
-    --surface:#10151F;
-    --surface-2:#161C29;
-    --border:rgba(232,163,61,0.14);
-    --border-strong:rgba(232,163,61,0.32);
-    --amber:#E8A33D;
-    --amber-dim:rgba(232,163,61,0.12);
-    --teal:#4FD1C5;
-    --teal-dim:rgba(79,209,197,0.12);
-    --text:#EDEFF4;
-    --muted:#8B93A7;
-    --muted-2:#5B6479;
-    --radius:10px;
-    --maxw:1180px;
+    --paper:#F3F5F8;
+    --card:#FFFFFF;
+    --ink:#0F1B2D;
+    --ink-2:#44536A;
+    --rule:#D5DBE5;
+    --blue:#1B3FA6;
+    --good:#0B7A5A;
+    --warn:#C8481F;
+    --max:1040px;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-underline-offset:3px;text-decoration-thickness:1px}
+  a:hover{color:var(--ink)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:3px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:'IBM Plex Serif',Georgia,serif;line-height:1.2;letter-spacing:-0.012em}
+  .num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
 
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Inter',sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  body::before{
-    content:"";
-    position:fixed; inset:0;
-    background-image:
-      linear-gradient(rgba(232,163,61,0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(232,163,61,0.035) 1px, transparent 1px);
-    background-size:56px 56px;
-    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 70%);
-    pointer-events:none;
-    z-index:0;
-  }
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
-  section{position:relative;z-index:1}
+  /* top bar */
+  .top{position:sticky;top:0;z-index:10;background:rgba(243,245,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:60px}
+  .brand{font-family:'IBM Plex Serif',serif;font-weight:600;color:var(--ink);text-decoration:none;font-size:17px}
+  .top nav{display:flex;gap:26px;font-size:15px}
+  .top nav a{color:var(--ink-2);text-decoration:none}
+  .top nav a:hover{color:var(--ink);text-decoration:underline}
+  @media (max-width:640px){.top nav{gap:16px;font-size:14px}.top nav a.hide-sm{display:none}}
 
-  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.01em}
-  .mono{font-family:'JetBrains Mono',monospace}
+  /* hero */
+  .hero{padding:72px 0 56px}
+  .who{color:var(--ink-2);font-size:16px;margin-bottom:22px}
+  .hero h1{font-size:clamp(30px,5.2vw,52px);font-weight:700;max-width:880px}
+  .hero .lede{max-width:640px;color:var(--ink-2);margin-top:22px;font-size:18px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .btn{display:inline-block;padding:12px 22px;border-radius:6px;font-weight:500;font-size:15.5px;text-decoration:none;border:1.5px solid var(--ink)}
+  .btn.main{background:var(--ink);color:#fff}
+  .btn.main:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+  .btn.line{color:var(--ink);background:transparent}
+  .btn.line:hover{background:var(--ink);color:#fff}
 
-  a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px; border-radius:4px}
+  /* the one memorable element: the finding as a chart */
+  .finding{margin-top:52px;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:30px 32px 26px}
+  .finding h2{font-size:20px;margin-bottom:4px}
+  .finding .sub{color:var(--ink-2);font-size:15px;margin-bottom:26px}
+  .row{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;margin-bottom:22px}
+  .row .lbl{font-weight:500;font-size:15px}
+  .row .lbl small{display:block;color:var(--ink-2);font-weight:400;font-size:13.5px}
+  .bar{display:flex;height:40px;border-radius:5px;overflow:hidden;background:#E6EAF1}
+  .seg{display:flex;align-items:center;padding:0 12px;color:#fff;font-size:14px;white-space:nowrap;width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+  .seg.fb{background:var(--blue)}
+  .seg.gg{background:var(--good)}
+  .loaded .seg{width:var(--w)}
+  .legend{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--ink-2);margin-top:6px}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:7px;vertical-align:-1px}
+  .src{margin-top:18px;font-size:13.5px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:14px}
+  @media (max-width:640px){.row{grid-template-columns:1fr;gap:8px}.finding{padding:24px 20px}}
+  @media (prefers-reduced-motion:reduce){.seg{transition:none}html{scroll-behavior:auto}}
 
-  /* ---------- NAV ---------- */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:50;
-    background:rgba(10,14,20,0.82);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:var(--maxw);margin:0 auto}
-  .nav-id{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--amber);display:flex;align-items:center;gap:8px}
-  .nav-id .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulse 2.4s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
-  .nav-links{display:flex;gap:28px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted)}
-  .nav-links a{transition:color .2s}
-  .nav-links a:hover{color:var(--amber)}
-  .nav-toggle{display:none;background:none;border:1px solid var(--border-strong);color:var(--amber);width:38px;height:38px;border-radius:6px;font-family:'JetBrains Mono',monospace;cursor:pointer}
+  /* sections */
+  section{padding:64px 0}
+  .head{display:grid;grid-template-columns:200px 1fr;gap:28px;margin-bottom:34px}
+  .head h2{font-size:28px}
+  .head p{color:var(--ink-2);max-width:620px}
+  @media (max-width:760px){.head{grid-template-columns:1fr;gap:8px}}
+  .rule{border:0;border-top:1px solid var(--rule)}
 
+  /* lead case study */
+  .case{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:34px}
+  .case h3{font-size:26px;margin-bottom:6px}
+  .case .ctx{color:var(--ink-2);margin-bottom:24px;max-width:700px}
+  .results{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:26px}
+  .results div{padding:20px 22px 20px 0}
+  .results div+div{padding-left:22px;border-left:1px solid var(--rule)}
+  .results .big{font-family:'IBM Plex Serif',serif;font-size:34px;font-weight:700;line-height:1.1}
+  .results p{font-size:14.5px;color:var(--ink-2);margin-top:6px}
   @media (max-width:760px){
-    .nav-links{
-      position:fixed; top:60px; left:0; right:0;
-      background:var(--surface);
-      border-bottom:1px solid var(--border);
-      flex-direction:column; gap:0;
-      max-height:0; overflow:hidden;
-      transition:max-height .3s ease;
-    }
-    .nav-links.open{max-height:320px}
-    .nav-links a{padding:14px 32px;border-top:1px solid var(--border)}
-    .nav-toggle{display:block}
+    .case{padding:24px 20px}
+    .results{grid-template-columns:1fr}
+    .results div,.results div+div{padding:16px 0;border-left:0}
+    .results div+div{border-top:1px solid var(--rule)}
   }
+  .case ul{margin:0 0 24px 20px;max-width:720px}
+  .case li{margin-bottom:8px}
+  .links{display:flex;flex-wrap:wrap;gap:22px;font-weight:500}
 
-  /* ---------- HERO ---------- */
-  .hero{padding:168px 0 100px}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--teal);
-    background:var(--teal-dim); border:1px solid rgba(79,209,197,0.25);
-    display:inline-block; padding:5px 12px; border-radius:20px; margin-bottom:28px;
-  }
-  .console{
-    background:var(--surface);
-    border:1px solid var(--border-strong);
-    border-radius:var(--radius);
-    box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
-    overflow:hidden;
-    max-width:820px;
-  }
-  .console-bar{
-    display:flex; align-items:center; gap:8px;
-    padding:12px 16px; background:var(--surface-2); border-bottom:1px solid var(--border);
-    flex-wrap:nowrap; overflow:hidden;
-  }
-  .console-bar span{width:10px;height:10px;min-width:10px;border-radius:50%;background:#3A4152}
-  .console-bar .title{margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted-2);white-space:nowrap}
-  .console-body{padding:26px 28px 30px;font-family:'JetBrains Mono',monospace;font-size:14.5px;line-height:1.9}
-  .console-body .kw{color:#C792EA}
-  .console-body .fn{color:var(--teal)}
-  .console-body .str{color:var(--amber)}
-  .console-body .cmt{color:var(--muted-2)}
-  #typedQuery{white-space:pre-wrap;color:var(--text);display:block;min-height:5.7em}
-  .cmt{display:block;margin-bottom:4px}
-  .cursor{display:inline-block;width:8px;height:17px;background:var(--amber);vertical-align:middle;animation:blink 1s step-end infinite}
-  @keyframes blink{50%{opacity:0}}
-  .result-row{
-    margin-top:18px; padding-top:18px; border-top:1px dashed var(--border);
-    opacity:0; transform:translateY(6px); transition:opacity .5s ease, transform .5s ease;
-  }
-  .result-row.show{opacity:1; transform:translateY(0)}
-  .result-row .rname{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:var(--text)}
-  .result-row .rtitle{color:var(--amber);font-size:14.5px;margin-top:4px}
-  .result-row .rmeta{color:var(--muted);font-size:13px;margin-top:10px}
+  /* other builds */
+  .build{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:30px 0;border-top:1px solid var(--rule)}
+  .build h3{font-size:20px}
+  .build .what{color:var(--ink-2);font-size:14.5px;margin-top:6px}
+  .build p{max-width:640px;margin-bottom:12px}
+  .build .links{font-size:15px}
+  @media (max-width:760px){.build{grid-template-columns:1fr;gap:10px}}
 
-  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
-  .btn{
-    font-family:'JetBrains Mono',monospace;font-size:13.5px;
-    padding:12px 22px;border-radius:8px;border:1px solid var(--border-strong);
-    display:inline-flex;align-items:center;gap:8px;transition:all .2s;
-  }
-  .btn-primary{background:var(--amber);color:#0A0E14;border-color:var(--amber);font-weight:600}
-  .btn-primary:hover{background:#f2b559;transform:translateY(-1px)}
-  .btn-ghost{color:var(--text);background:transparent}
-  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+  /* tables */
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;font-size:15.5px}
+  th,td{text-align:left;padding:15px 18px;vertical-align:top;border-bottom:1px solid var(--rule)}
+  tr:last-child td{border-bottom:0}
+  th{font-weight:600;background:#EAEEF4;font-size:14.5px}
+  td:first-child{font-weight:500;white-space:nowrap}
+  .scroll{overflow-x:auto}
+  @media (max-width:640px){td:first-child{white-space:normal}}
 
-  /* ---------- SECTION HEADERS ---------- */
-  .section{padding:100px 0}
-  .section-head{margin-bottom:52px}
-  .schema-label{
-    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--muted-2);
-    margin-bottom:10px; letter-spacing:0.02em;
-  }
-  .schema-label .path{color:var(--amber)}
-  .section-title{font-size:clamp(28px,4vw,38px);font-weight:600}
-  .section-sub{color:var(--muted);max-width:640px;margin-top:14px;font-size:15.5px}
+  /* skills as definition list */
+  dl.skills{background:var(--card);border:1px solid var(--rule);border-radius:10px}
+  dl.skills div{display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 22px;border-bottom:1px solid var(--rule)}
+  dl.skills div:last-child{border-bottom:0}
+  dt{font-weight:600}
+  dd{color:var(--ink-2)}
+  @media (max-width:640px){dl.skills div{grid-template-columns:1fr;gap:2px}}
 
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease}
-  .reveal.in{opacity:1;transform:translateY(0)}
+  .prose{max-width:680px}
+  .prose p{margin-bottom:16px}
 
-  /* ---------- ABOUT ---------- */
-  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
-  @media (max-width:820px){.about-grid{grid-template-columns:1fr}}
-  .about-text p{color:#C7CBD6;font-size:16px;margin-bottom:16px}
-  .about-text strong{color:var(--text)}
-  .stat-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-  .stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 20px;border-bottom:1px solid var(--border)}
-  .stat-row:last-child{border-bottom:none}
-  .stat-row .k{color:var(--muted);font-size:13.5px;font-family:'JetBrains Mono',monospace}
-  .stat-row .v{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--amber)}
+  .creds li{list-style:none;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid var(--rule)}
+  .creds li:first-child{border-top:1px solid var(--rule)}
+  .creds span{color:var(--ink-2);font-size:14.5px}
 
-  /* ---------- SKILLS ---------- */
-  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  @media (max-width:820px){.skill-grid{grid-template-columns:1fr}}
-  .skill-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px}
-  .skill-card h4{font-size:14px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-bottom:14px;font-weight:500}
-  .pill-row{display:flex;flex-wrap:wrap;gap:8px}
-  .pill{
-    font-size:12.5px;padding:5px 11px;border-radius:6px;
-    background:var(--surface-2);border:1px solid var(--border);color:#C7CBD6;
-  }
-
-  /* ---------- FLAGSHIP PROJECT ---------- */
-  .flagship{
-    background:linear-gradient(160deg, var(--surface) 0%, var(--surface-2) 100%);
-    border:1px solid var(--border-strong);
-    border-radius:16px;
-    padding:44px;
-    position:relative;
-    overflow:hidden;
-  }
-  .flagship::after{
-    content:"";position:absolute;top:-40%;right:-15%;width:480px;height:480px;
-    background:radial-gradient(circle, rgba(232,163,61,0.10), transparent 70%);
-    pointer-events:none;
-  }
-  @media (max-width:640px){.flagship{padding:28px}}
-  .flagship-tag{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(232,163,61,0.3);padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:18px}
-  .flagship h3{font-size:clamp(22px,3vw,30px);margin-bottom:14px;max-width:640px}
-  .flagship p{color:#C7CBD6;font-size:15.5px;max-width:680px;margin-bottom:24px}
-  .flow-chain{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;font-family:'JetBrains Mono',monospace;font-size:12px}
-  .flow-step{background:rgba(0,0,0,0.25);border:1px solid var(--border);padding:6px 12px;border-radius:6px;color:var(--muted)}
-  .flow-arrow{color:var(--muted-2);align-self:center}
-  .flagship-links{display:flex;gap:14px;flex-wrap:wrap}
-
-  /* ---------- PROJECT GRID ---------- */
-  .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  @media (max-width:980px){.project-grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:640px){.project-grid{grid-template-columns:1fr}}
-  .pcard{
-    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-    padding:24px;display:flex;flex-direction:column;height:100%;
-    transition:transform .25s ease, border-color .25s ease;
-  }
-  .pcard:hover{transform:translateY(-4px);border-color:var(--border-strong)}
-  .pcard .ptag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted-2);margin-bottom:10px}
-  .pcard h4{font-size:16.5px;margin-bottom:10px;line-height:1.35}
-  .pcard p{color:var(--muted);font-size:13.5px;flex-grow:1;margin-bottom:16px}
-  .pcard .plink{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--teal);display:inline-flex;align-items:center;gap:6px}
-  .pcard .plink:hover{color:var(--amber)}
-
-  /* ---------- CERTS ---------- */
-  .cert-list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-  .cert-row{
-    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;
-    padding:18px 22px;border-bottom:1px solid var(--border);
-    transition:background .2s;
-  }
-  .cert-row:last-child{border-bottom:none}
-  .cert-row:hover{background:var(--surface)}
-  .cert-row .cname{font-size:14.5px;color:var(--text)}
-  .cert-row .cmeta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted-2)}
-  .cert-row a.cname:hover{color:var(--amber)}
-
-  /* ---------- CONTACT / FOOTER ---------- */
-  .contact-box{
-    background:var(--surface);border:1px solid var(--border-strong);border-radius:16px;
-    padding:56px 44px;text-align:center;
-  }
-  .contact-box h2{font-size:clamp(26px,4vw,36px);margin-bottom:16px}
-  .contact-box p{color:var(--muted);max-width:480px;margin:0 auto 30px}
-  .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-  footer{padding:36px 0;text-align:center;color:var(--muted-2);font-family:'JetBrains Mono',monospace;font-size:12.5px}
+  .contact{background:var(--ink);color:#fff;border-radius:12px;padding:48px 40px}
+  .contact h2{font-size:30px;margin-bottom:12px}
+  .contact p{color:#C4CDDC;max-width:520px;margin-bottom:26px}
+  .contact a.btn{border-color:#fff;color:#fff}
+  .contact a.btn.main{background:#fff;color:var(--ink)}
+  .contact a.btn:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+  @media (max-width:640px){.contact{padding:34px 24px}}
+  footer{padding:34px 0 48px;color:var(--ink-2);font-size:14px}
 </style>
 </head>
 <body>
 
-<header>
-  <nav class="nav">
-    <div class="nav-id"><span class="dot"></span>sushant@analytics:~$</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="#about">schema.about</a>
-      <a href="#skills">schema.skills</a>
-      <a href="#projects">schema.projects</a>
-      <a href="#certs">schema.certs</a>
-      <a href="#contact">schema.contact</a>
-    </div>
-  </nav>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Sushant Kumar Yadav</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#skills" class="hide-sm">Skills</a>
+      <a href="#background" class="hide-sm">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">● Open to Data Analyst / Business Analyst / Analytics Engineer roles</span>
-      <div class="console">
-        <div class="console-bar">
-          <span style="background:#E8555A"></span><span style="background:#E8B23D"></span><span style="background:#4FD16B"></span>
-          <span class="title">warehouse.sql</span>
+<main id="top">
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <p class="who">Sushant Kumar Yadav, fresher Data &amp; Financial Analyst in New Delhi</p>
+      <h1>Facebook got 93.67% of a ₹62.8 lakh ad budget. Google returned three times more per rupee.</h1>
+      <p class="lede">That is the finding from my latest case study. I build the SQL, Power BI and Python behind answers like this one, and I can join immediately.</p>
+      <div class="actions">
+        <a class="btn main" href="#work">See the case study</a>
+        <a class="btn line" href="mailto:skysushantm416@gmail.com">Email me</a>
+      </div>
+
+      <div class="finding" id="chart" aria-labelledby="fh">
+        <h2 id="fh">Where the budget went, and what it earned</h2>
+        <p class="sub">Facebook and Google Ads, March to August 2026</p>
+
+        <div class="row">
+          <div class="lbl">Share of budget<small>₹62.8L total</small></div>
+          <div class="bar" role="img" aria-label="Facebook 93.67 percent of budget, Google 6.33 percent">
+            <div class="seg fb num" style="--w:93.67%">93.67%</div>
+            <div class="seg gg" style="--w:6.33%"></div>
+          </div>
         </div>
-        <div class="console-body">
-<div class="cmt">-- who is querying this table?</div>
-<div id="typedQuery"></div><span class="cursor" id="cursorBlink"></span>
-          <div class="result-row" id="resultRow">
-            <div class="rname">Sushant Kumar Yadav</div>
-            <div class="rtitle">Data Analyst · Business Analyst · Analytics Engineer</div>
-            <div class="rmeta">1 row returned · New Delhi, India · available_from: immediate</div>
+        <div class="row">
+          <div class="lbl">Revenue per ₹1 spent<small>Return on ad spend</small></div>
+          <div>
+            <div class="bar" style="margin-bottom:8px" role="img" aria-label="Facebook return on ad spend 1.89">
+              <div class="seg fb num" style="--w:32%">1.89</div>
+            </div>
+            <div class="bar" role="img" aria-label="Google return on ad spend 5.86">
+              <div class="seg gg num" style="--w:100%">5.86</div>
+            </div>
+          </div>
+        </div>
+        <div class="legend">
+          <span><i style="background:var(--blue)"></i>Facebook</span>
+          <span><i style="background:var(--good)"></i>Google</span>
+        </div>
+        <p class="src">Figures come from my Power BI audit of 32 campaigns and 74 ad sets. Moving budget toward what works lifts ad revenue 3.78% with no extra spend.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="head">
+        <h2>Selected work</h2>
+        <p>One analysis with a business result, then the pipelines and models behind my engineering skills.</p>
+      </div>
+
+      <article class="case">
+        <h3>Ad spend audit and budget reallocation</h3>
+        <p class="ctx">A marketing agency's assessment: grow sales 25% without raising the budget. I treated it as a self-completed case study and did not submit it to the company.</p>
+
+        <div class="results">
+          <div><div class="big num">+3.78%</div><p>Ad-attributed revenue from reallocation alone, ₹1.345 Cr to ₹1.396 Cr</p></div>
+          <div><div class="big num">₹2.94L</div><p>Spent on 37 ad sets that produced no sales at all</p></div>
+          <div><div class="big num">₹73,280</div><p>Reclaimed by stopping 10 campaigns with zero sales</p></div>
+        </div>
+
+        <ul>
+          <li>Google returned 5.86 per rupee against Facebook's 1.89, yet Facebook held 93.67% of spend.</li>
+          <li>Both channels peaked in April and declined as spend grew, which points to audience saturation.</li>
+          <li>The 25% target cannot be met by moving budget alone. I said so in the report and listed what else is needed: a checkout and tracking fix, order value recovery, and a creative and offer shift.</li>
+        </ul>
+
+        <div class="links">
+          <a href="https://github.com/Skysushant7366/ad-spend-budget-reallocation" target="_blank" rel="noopener">Read the full case study on GitHub</a>
+          <a href="https://youtu.be/U88NvBqRqmM" target="_blank" rel="noopener">Watch the dashboard walkthrough</a>
+        </div>
+      </article>
+
+      <div style="margin-top:34px">
+        <div class="build">
+          <div>
+            <h3>E-commerce analytics pipeline</h3>
+            <p class="what">Google Cloud, dbt, Python, Power BI</p>
+          </div>
+          <div>
+            <p>A nightly pipeline turns raw e-commerce data into clean tables with 45+ SQL models in BigQuery and dbt. Eight machine learning models score more than 161,000 customers for fraud, churn, lifetime value and recommendations. The Power BI dashboard refreshes by itself each day through GitHub Actions.</p>
+            <div class="links">
+              <a href="https://github.com/Skysushant7366/ecommerce-etl-pipeline" target="_blank" rel="noopener">GitHub repository</a>
+              <a href="https://drive.google.com/file/d/1BpBaR_uQ6jfdwuJByN6FaYOOl_-RHXEb/view?usp=sharing" target="_blank" rel="noopener">Architecture diagram</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="build">
+          <div>
+            <h3>Bank fraud detection and risk monitoring</h3>
+            <p class="what">BigQuery, SQL, Python, Looker Studio</p>
+          </div>
+          <div>
+            <p>300,000+ simulated transactions organised in a three-stage SQL pipeline. A fraud-detection model is combined with 15 statistical checks, the way banks layer more than one control. Daily monitoring feeds a dashboard of flagged transactions.</p>
+            <div class="links">
+              <a href="https://lookerstudio.google.com/reporting/e7c17762-682b-4ac6-a7a2-87575e63a76f" target="_blank" rel="noopener">View the dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="build">
+          <div>
+            <h3>Earlier dashboards</h3>
+            <p class="what">2025</p>
+          </div>
+          <div>
+            <p>Zomato sales analytics in Excel and Power BI, covering 2,748 transactions and 151K items sold. Bank marketing analytics in Python and Power BI, covering conversion by age and contact outcome.</p>
+            <div class="links">
+              <a href="https://github.com/Skysushant7366/Zomato-Sales-Analytics" target="_blank" rel="noopener">Zomato repository</a>
+              <a href="https://github.com/Skysushant7366/Bank_Marketing_Analysis" target="_blank" rel="noopener">Bank marketing repository</a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#projects">→ View projects</a>
-        <a class="btn btn-ghost" href="https://github.com/Skysushant7366" target="_blank" rel="noopener">GitHub ↗</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/sushantkumaryadav310899" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="btn btn-ghost" href="mailto:skysushantm416@gmail.com">Email ↗</a>
+
+      <h3 style="font-size:22px;margin:40px 0 8px">Job simulations on Forage</h3>
+      <p style="color:var(--ink-2);margin-bottom:18px;max-width:640px">Six virtual work projects, each with code or a model on GitHub.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Company</th><th>What I built</th><th>Code</th></tr></thead>
+          <tbody>
+            <tr><td>Quantium</td><td>Segmented 264,836 retail transactions in R and ran a statistical test to validate a pricing strategy. Recommended a trial-store rollout.</td><td><a href="https://github.com/Skysushant7366/Quantium-R" target="_blank" rel="noopener">GitHub</a></td></tr>
+            <tr><td>BCG X, Data Science</td><td>Churn model for a 14,600-customer utility base, 90.3% accuracy.</td><td><a href="https://github.com/Skysushant7366/BCGxData-Science" target="_blank" rel="noopener">GitHub</a></td></tr>
+            <tr><td>Deloitte Australia</td><td>Tableau dashboard across 4 factories and 9 machine types.</td><td><a href="https://github.com/Skysushant7366/Deloitte-Forensic-Data-Analytics-Portfolio" target="_blank" rel="noopener">GitHub</a></td></tr>
+            <tr><td>PwC US</td><td>Three-scenario financial model projecting profit impact of a proposed merger.</td><td><a href="https://github.com/Skysushant7366/PwC-Management-Consulting-Simulation" target="_blank" rel="noopener">GitHub</a></td></tr>
+            <tr><td>EY</td><td>Investigated a $24M account discrepancy and reviewed IT control gaps.</td><td><a href="https://github.com/Skysushant7366/EY-Forensic-Integrity-Services-and-Technology-Risk-IT-Job-Simulation" target="_blank" rel="noopener">GitHub</a></td></tr>
+            <tr><td>BCG X, GenAI</td><td>Chatbot that answers comparison questions from company financial filings.</td><td><a href="https://github.com/Skysushant7366/BCGxGEN-AI" target="_blank" rel="noopener">GitHub</a></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="schema-label"><span class="path">schema</span>.about</div>
-        <h2 class="section-title">Built for the messy middle of data.</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>I'm a <strong>B.Com (Honours)</strong> graduate from the <strong>University of Delhi</strong>, working across the full data stack — from raw source tables to the dashboard a manager actually opens every morning.</p>
-          <p>My flagship build is a <strong>fully automated ELT + AI pipeline</strong> on Google Cloud: 45+ dbt models, an 8-stage chained machine learning system, and a Gemini-powered content engine that runs unattended every night and lands on a live Power BI dashboard by sunrise.</p>
-          <p>Alongside the engineering, I hold the <strong>Microsoft Business Analyst Professional Certificate</strong> (avg. 94.8%) and have completed <strong>8 industry simulations</strong> with EY, PwC, BCG X, Quantium, and Deloitte — covering forensic investigation, M&A strategy, and technology risk.</p>
-        </div>
-        <div class="stat-list reveal">
-          <div class="stat-row"><span class="k">dbt models shipped</span><span class="v">45+</span></div>
-          <div class="stat-row"><span class="k">chained ML models</span><span class="v">8</span></div>
-          <div class="stat-row"><span class="k">industry simulations</span><span class="v">8</span></div>
-          <div class="stat-row"><span class="k">pipeline schedule</span><span class="v">01:30 → 02:30 IST</span></div>
-          <div class="stat-row"><span class="k">manual intervention</span><span class="v">zero</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <hr class="rule">
 
   <!-- SKILLS -->
-  <section class="section" id="skills">
+  <section id="skills">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="schema-label"><span class="path">schema</span>.skills</div>
-        <h2 class="section-title">The stack, table by table.</h2>
-        <p class="section-sub">Grouped the way I actually use them — not a wall of logos.</p>
+      <div class="head">
+        <h2>Skills</h2>
+        <p>The tools I use for each kind of task.</p>
       </div>
-      <div class="skill-grid">
-        <div class="skill-card reveal">
-          <h4>languages</h4>
-          <div class="pill-row">
-            <span class="pill">SQL (BigQuery)</span><span class="pill">PostgreSQL</span><span class="pill">MySQL</span>
-            <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">NumPy</span>
-            <span class="pill">Scikit-learn</span><span class="pill">R (ggplot2, dplyr)</span>
-          </div>
-        </div>
-        <div class="skill-card reveal">
-          <h4>bi &amp; visualisation</h4>
-          <div class="pill-row">
-            <span class="pill">Power BI (DAX)</span><span class="pill">Tableau (LOD)</span><span class="pill">Looker Studio</span>
-            <span class="pill">Advanced Excel</span><span class="pill">Power Query</span><span class="pill">Power Pivot</span><span class="pill">VBA Macros</span>
-          </div>
-        </div>
-        <div class="skill-card reveal">
-          <h4>data engineering &amp; mlops</h4>
-          <div class="pill-row">
-            <span class="pill">dbt Cloud</span><span class="pill">GitHub Actions CI/CD</span><span class="pill">Google Cloud Pub/Sub</span>
-            <span class="pill">Power Automate</span><span class="pill">Workload Identity Federation</span><span class="pill">Papermill</span>
-          </div>
-        </div>
-        <div class="skill-card reveal">
-          <h4>statistics &amp; ml</h4>
-          <div class="pill-row">
-            <span class="pill">Hypothesis / A-B Testing</span><span class="pill">XGBoost</span><span class="pill">K-Means</span>
-            <span class="pill">Apriori</span><span class="pill">SHAP</span><span class="pill">Regression</span><span class="pill">Classification</span>
-          </div>
-        </div>
-        <div class="skill-card reveal">
-          <h4>business analysis (ms visio)</h4>
-          <div class="pill-row">
-            <span class="pill">BRD</span><span class="pill">User Stories</span><span class="pill">UML</span><span class="pill">BPMN</span><span class="pill">DFD</span>
-            <span class="pill">ER Diagrams</span><span class="pill">Gap Analysis</span><span class="pill">RAID Log</span><span class="pill">Traceability Matrix</span>
-            <span class="pill">Sprint Planning</span><span class="pill">Kanban / Scrum</span>
-          </div>
-        </div>
-        <div class="skill-card reveal">
-          <h4>environments &amp; tools</h4>
-          <div class="pill-row">
-            <span class="pill">Jupyter Notebook</span><span class="pill">Google Colab</span><span class="pill">VS Code</span>
-            <span class="pill">Anaconda</span><span class="pill">draw.io</span><span class="pill">ChatGPT / Claude / Gemini</span>
-          </div>
-        </div>
-      </div>
+      <dl class="skills">
+        <div><dt>Querying and modelling</dt><dd>SQL on BigQuery, PostgreSQL and MySQL. dbt Cloud, ETL pipelines, data cleaning and validation.</dd></div>
+        <div><dt>Dashboards and reporting</dt><dd>Power BI (DAX, Power Query), Tableau, Looker Studio. Excel with Pivot Tables, XLOOKUP, Power Query, Power Pivot and VBA.</dd></div>
+        <div><dt>Python, R and statistics</dt><dd>Pandas, NumPy, Scikit-learn, XGBoost, Matplotlib, Seaborn. Hypothesis and A/B testing, regression, clustering, forecasting.</dd></div>
+        <div><dt>Automation and cloud</dt><dd>Google Cloud Platform, GitHub Actions for CI/CD, Power Automate.</dd></div>
+        <div><dt>Business analysis</dt><dd>BRD, user stories, gap analysis, BPMN and UML diagrams, Agile and Scrum.</dd></div>
+        <div><dt>Finance and banking</dt><dd>Macroeconomics, banking and financial systems, financial modelling, fraud and risk monitoring, KPI design.</dd></div>
+      </dl>
     </div>
   </section>
 
-  <!-- FLAGSHIP PROJECT -->
-  <section class="section" id="projects">
+  <hr class="rule">
+
+  <!-- BACKGROUND -->
+  <section id="background">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="schema-label"><span class="path">schema</span>.projects</div>
-        <h2 class="section-title">What I've shipped.</h2>
+      <div class="head">
+        <h2>Background</h2>
+        <p>Where the finance side of my work comes from.</p>
+      </div>
+      <div class="prose">
+        <p>I finished a B.Com (Honours) at the University of Delhi in 2021. For the next four years, until July 2025, I prepared full time for the RBI Grade B exam. It gave me a working knowledge of banking, monetary policy and financial systems, and the habit of studying hard with nobody checking on me.</p>
+        <p>Since then I have moved into data analytics, and I now work in SQL, Power BI and Python. I have no formal job experience yet, so everything on this page is project work you can open and inspect.</p>
       </div>
 
-      <div class="flagship reveal">
-        <span class="flagship-tag">flagship build</span>
-        <h3>AI Omnichannel E-Commerce Intelligence Platform</h3>
-        <p>A fully automated, self-refreshing ELT + AI pipeline. 45+ dbt SQL models rebuild an isolated production dataset nightly; an 8-stage chained ML system scores every customer for fraud, churn, LTV, and price sensitivity; a 5-phase business engine turns those scores into margin and discount decisions; Gemini writes the marketing copy — and a live Power BI dashboard is waiting by morning. Zero manual steps.</p>
-        <div class="flow-chain">
-          <span class="flow-step">BigQuery source</span><span class="flow-arrow">→</span>
-          <span class="flow-step">dbt (45+ models)</span><span class="flow-arrow">→</span>
-          <span class="flow-step">GitHub Actions 02:30</span><span class="flow-arrow">→</span>
-          <span class="flow-step">8-link ML chain</span><span class="flow-arrow">→</span>
-          <span class="flow-step">5-phase engine</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Gemini copywriter</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Power BI</span>
-        </div>
-        <div class="flagship-links">
-          <a class="btn btn-primary" href="https://github.com/Skysushant7366/ecommerce-etl-pipeline" target="_blank" rel="noopener">GitHub repo ↗</a>
-          <a class="btn btn-ghost" href="https://drive.google.com/file/d/1BpBaR_uQ6jfdwuJByN6FaYOOl_-RHXEb/view?usp=sharing" target="_blank" rel="noopener">Architecture diagram ↗</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECT GRID -->
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="project-grid">
-
-        <div class="pcard reveal">
-          <div class="ptag">BIGQUERY ML · FORENSICS</div>
-          <h4>Bank Fraud Detection &amp; Risk Monitoring Dashboard</h4>
-          <p>BigQuery ML XGBoost classifier layered with a 15-technique forensic ensemble; automated end-to-end via GitHub Actions with OIDC auth, zero static keys.</p>
-          <a class="plink" href="https://lookerstudio.google.com/reporting/e7c17762-682b-4ac6-a7a2-87575e63a76f" target="_blank" rel="noopener">View dashboard ↗</a>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="ptag">BCG X · DATA SCIENCE SIMULATION</div>
-          <h4>SME Churn Prediction — PowerCo</h4>
-          <p>Random Forest model on a 14.6K-customer base (193K price records, 1:9.3 class imbalance); engineered a 63-feature price-sensitivity matrix, 90.3% accuracy.</p>
-          <a class="plink" href="https://github.com/Skysushant7366/BCGxData-Science" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="ptag">BCG X · GENAI SIMULATION</div>
-          <h4>SEC Filing Financial Chatbot</h4>
-          <p>Rule-based NLP chatbot (Python, Regex, Pandas) parsing 10-K filings for Apple, Microsoft &amp; Tesla — dynamic multi-company ratio comparisons.</p>
-          <a class="plink" href="https://github.com/Skysushant7366/BCGxGEN-AI" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="ptag">PWC US · CONSULTING SIMULATION</div>
-          <h4>Microsoft FY25 M&amp;A Synergy Model</h4>
-          <p>3-scenario synergy model on Microsoft's $281.7B FY2025 revenue, projecting a $9.95M–$18.3M EBIT step-up from a proposed divestiture.</p>
-          <a class="plink" href="https://github.com/Skysushant7366/PwC-Management-Consulting-Simulation" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="ptag">EY · FORENSIC &amp; TECH RISK</div>
-          <h4>Asset Reconciliation &amp; ITGC Review</h4>
-          <p>Applied the Fraud Triangle to a $24M personal-asset reconciliation; evaluated IT General Controls, documenting 5+ control gaps.</p>
-          <a class="plink" href="https://github.com/Skysushant7366/EY-Forensic-Integrity-Services-and-Technology-Risk-IT-Job-Simulation" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="ptag">DELOITTE AUSTRALIA · ANALYTICS</div>
-          <h4>Factory Telemetry &amp; Pay-Equity Dashboard</h4>
-          <p>Tableau dashboard across 4 factories / 9 machine types; engineered a nested-IF gender pay-equity scoring model.</p>
-          <a class="plink" href="https://github.com/Skysushant7366/Deloitte-Forensic-Data-Analytics-Portfolio" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="ptag">QUANTIUM · DATA ANALYTICS</div>
-          <h4>Retail Trial-Store Uplift Analysis</h4>
-          <p>Segmented 264,836 transactions in R; ran a Welch t-test to validate pricing strategy and recommend a trial-store rollout.</p>
-          <a class="plink" href="https://github.com/Skysushant7366/Quantium-R" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="ptag">POWER BI</div>
-          <h4>Zomato Sales Analytics Dashboard</h4>
-          <p>Restaurant sales, revenue drivers, and rating trends surfaced in an interactive Power BI dashboard.</p>
-          <a class="plink" href="https://github.com/Skysushant7366/Zomato-Sales-Analytics" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="ptag">PYTHON · POWER BI</div>
-          <h4>Bank Marketing Analytics Dashboard</h4>
-          <p>Analysed 40,000+ campaign records in Python; built Power BI conversion-funnel KPIs for a marketing team.</p>
-          <a class="plink" href="https://github.com/Skysushant7366/Bank_Marketing_Analysis" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section class="section" id="certs">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="schema-label"><span class="path">schema</span>.certifications</div>
-        <h2 class="section-title">Credentials on record.</h2>
-      </div>
-      <div class="cert-list reveal">
-        <div class="cert-row">
-          <a class="cname" href="https://www.coursera.org/account/accomplishments/professional-cert/EH3E9S28NL2X" target="_blank" rel="noopener">Microsoft Business Analyst Professional Certificate</a>
-          <span class="cmeta">Microsoft / Coursera · 6 courses · avg. 94.8% · Mar 2026</span>
-        </div>
-        <div class="cert-row">
-          <a class="cname" href="https://www.coursera.org/account/accomplishments/certificate/AXKK2HDIZO8W" target="_blank" rel="noopener">Python for Data Science, AI &amp; Development</a>
-          <span class="cmeta">IBM / Coursera · Apr 2026</span>
-        </div>
-        <div class="cert-row">
-          <a class="cname" href="https://www.coursera.org/account/accomplishments/certificate/WF72IC35O6PH" target="_blank" rel="noopener">Advanced Data Visualisation with Tableau</a>
-          <span class="cmeta">SkillUp / Coursera · Apr 2026</span>
-        </div>
-        <div class="cert-row">
-          <a class="cname" href="https://www.coursera.org/account/accomplishments/certificate/15GPZ8285UXL" target="_blank" rel="noopener">Advanced Excel &amp; VBA Macros</a>
-          <span class="cmeta">Coursera · Jan 2026</span>
-        </div>
-        <div class="cert-row">
-          <a class="cname" href="https://trainings.internshala.com/s/v/3828138/42c858af" target="_blank" rel="noopener">Financial Modelling &amp; Valuation with AI</a>
-          <span class="cmeta">Internshala · Dec 2025</span>
-        </div>
-        <div class="cert-row">
-          <a class="cname" href="https://trainings.internshala.com/s/v/3804288/e8dea1c6" target="_blank" rel="noopener">Machine Learning with AI</a>
-          <span class="cmeta">Internshala · Oct 2025</span>
-        </div>
-        <div class="cert-row">
-          <a class="cname" href="https://trainings.internshala.com/s/v/3812307/5fea0c77" target="_blank" rel="noopener">Tally Basics &amp; Accounting</a>
-          <span class="cmeta">Grade A · NSDC / Skill India · Nov 2025</span>
-        </div>
-      </div>
+      <h3 style="font-size:22px;margin:44px 0 16px">Certifications</h3>
+      <ul class="creds">
+        <li><a href="https://www.coursera.org/account/accomplishments/professional-cert/EH3E9S28NL2X" target="_blank" rel="noopener">Microsoft Business Analyst Professional Certificate</a><span>Coursera, 94.8% average, March 2026</span></li>
+        <li><a href="https://www.coursera.org/account/accomplishments/certificate/AXKK2HDIZO8W" target="_blank" rel="noopener">Python for Data Science, AI &amp; Development</a><span>IBM on Coursera, April 2026</span></li>
+        <li><a href="https://www.coursera.org/account/accomplishments/certificate/WF72IC35O6PH" target="_blank" rel="noopener">Advanced Data Visualisation with Tableau</a><span>Coursera, April 2026</span></li>
+        <li><a href="https://www.coursera.org/account/accomplishments/certificate/15GPZ8285UXL" target="_blank" rel="noopener">Advanced Excel &amp; VBA Macros</a><span>Coursera, January 2026</span></li>
+        <li><a href="https://trainings.internshala.com/s/v/3828138/42c858af" target="_blank" rel="noopener">Financial Modelling &amp; Valuation with AI</a><span>Internshala, November 2025</span></li>
+        <li><a href="https://trainings.internshala.com/s/v/3812307/5fea0c77" target="_blank" rel="noopener">Tally Basics &amp; Accounting</a><span>NSDC / Skill India, Grade A, November 2025</span></li>
+        <li><a href="https://trainings.internshala.com/s/v/3804288/e8dea1c6" target="_blank" rel="noopener">Machine Learning with AI</a><span>Internshala, October 2025</span></li>
+      </ul>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="section" id="contact">
+  <section id="contact" style="padding-top:24px">
     <div class="wrap">
-      <div class="contact-box reveal">
-        <h2>Let's talk data.</h2>
-        <p>B.Com (Honours), University of Delhi · New Delhi, India · Available for immediate joining.</p>
-        <div class="contact-links">
-          <a class="btn btn-primary" href="mailto:skysushantm416@gmail.com">Email me ↗</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/sushantkumaryadav310899" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="btn btn-ghost" href="https://github.com/Skysushant7366" target="_blank" rel="noopener">GitHub ↗</a>
+      <div class="contact">
+        <h2>Hiring for a Data or Financial Analyst role?</h2>
+        <p>I am in New Delhi and can start immediately. Email is the fastest way to reach me.</p>
+        <div class="actions" style="margin-top:0">
+          <a class="btn main" href="mailto:skysushantm416@gmail.com">Email me</a>
+          <a class="btn line" href="https://www.linkedin.com/in/sushantkumaryadav310899" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn line" href="https://github.com/Skysushant7366" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>© 2026 Sushant Kumar Yadav · built with dbt, coffee, and one too many CI/CD reruns</footer>
+<footer>
+  <div class="wrap">© 2026 Sushant Kumar Yadav</div>
+</footer>
 
 <script>
-  // Mobile nav toggle
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open);
+  // One entrance: the chart bars grow once when the page loads.
+  window.addEventListener('load', function () {
+    requestAnimationFrame(function () {
+      document.getElementById('chart').classList.add('loaded');
+    });
   });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  }));
-
-  // Hero typing effect
-  const query = `<span class="kw">SELECT</span> name, title, location\n<span class="kw">FROM</span> <span class="fn">professionals</span>\n<span class="kw">WHERE</span> stack = <span class="str">'dbt + BigQuery + Python + GenAI'</span>\n  <span class="kw">AND</span> availability = <span class="str">'immediate'</span>;`;
-  const target = document.getElementById('typedQuery');
-  const cursor = document.getElementById('cursorBlink');
-  const resultRow = document.getElementById('resultRow');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function typeQuery(){
-    if(reduced){ target.innerHTML = query; resultRow.classList.add('show'); return; }
-    let i = 0;
-    const plain = query; // contains html tags; type by revealing substring of source, safe since it's fixed content
-    const chars = query.split('');
-    function step(){
-      target.innerHTML = chars.slice(0, i).join('');
-      i++;
-      if(i <= chars.length){
-        setTimeout(step, 9);
-      } else {
-        cursor.style.display = 'none';
-        setTimeout(()=> resultRow.classList.add('show'), 200);
-      }
-    }
-    step();
-  }
-  window.addEventListener('load', typeQuery);
-
-  // Scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
-
 </body>
 </html>
