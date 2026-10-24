@@ -137,6 +137,52 @@
   .contact a.btn:hover{background:var(--blue);border-color:var(--blue);color:#fff}
   @media (max-width:640px){.contact{padding:34px 24px}}
   footer{padding:34px 0 48px;color:var(--ink-2);font-size:14px}
+
+  /* flagship cases */
+  .case+.case{margin-top:28px}
+  .case .tag{display:inline-block;font-size:14px;color:var(--ink-2);margin-bottom:10px}
+  .chartbox{margin:6px 0 26px}
+  .chartbox h4{font-family:'IBM Plex Serif',serif;font-size:17px;margin-bottom:2px}
+  .chartbox .cap{font-size:14.5px;color:var(--ink-2);margin-bottom:10px;max-width:640px}
+  svg.line{width:100%;height:auto;display:block;overflow:visible}
+  svg.line text{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;fill:var(--ink-2)}
+  svg.line .val{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px}
+  svg.line .grid{stroke:var(--rule);stroke-width:1}
+  .path{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+  .path.g{stroke:var(--good)} .path.f{stroke:var(--blue)}
+  .dot{opacity:0;transition:opacity .4s ease 1.3s}
+  .in .path{stroke-dashoffset:0;transition:stroke-dashoffset 1.6s cubic-bezier(.4,.1,.2,1)}
+  .in .dot{opacity:1}
+  .in .path.f{transition-delay:.25s}
+
+  /* pipeline flow */
+  .flow{display:grid;grid-template-columns:repeat(7,1fr);gap:0;margin:8px 0 28px;position:relative}
+  .node{position:relative;text-align:center;padding:14px 8px 16px;border:1px solid var(--rule);background:var(--card);margin-left:-1px;font-size:14px;line-height:1.35;animation:lit 9s infinite;animation-delay:calc(var(--i) * 1s)}
+  .node:first-child{border-radius:8px 0 0 8px;margin-left:0}
+  .node:last-child{border-radius:0 8px 8px 0}
+  .node b{display:block;font-weight:600;font-size:14.5px}
+  .node span{color:var(--ink-2);font-size:13px;transition:color .3s}
+  @keyframes lit{
+    0%{background:var(--blue);border-color:var(--blue);color:#fff}
+    9%{background:var(--blue);border-color:var(--blue);color:#fff}
+    14%,100%{background:var(--card);border-color:var(--rule);color:var(--ink)}
+  }
+  @media (max-width:860px){
+    .flow{grid-template-columns:1fr}
+    .node{margin-left:0;margin-top:-1px;text-align:left;padding:12px 16px}
+    .node:first-child{border-radius:8px 8px 0 0;margin-top:0}
+    .node:last-child{border-radius:0 0 8px 8px}
+  }
+  .chain{display:flex;align-items:center;margin:4px 0 8px}
+  .chain i{width:22px;height:22px;border-radius:50%;border:2px solid var(--rule);background:var(--card);flex:none;transition:background .3s,border-color .3s}
+  .chain u{flex:1;height:2px;background:var(--rule);transition:background .3s}
+  .in .chain i{background:var(--blue);border-color:var(--blue);transition-delay:calc(var(--k) * .22s)}
+  .in .chain u{background:var(--blue);transition-delay:calc(var(--k) * .22s)}
+  .chainlbl{font-size:14.5px;color:var(--ink-2);max-width:640px}
+  @media (prefers-reduced-motion:reduce){
+    .node{animation:none}.path{stroke-dashoffset:0;transition:none}.dot{opacity:1;transition:none}
+    .chain i,.chain u{transition:none}
+  }
 </style>
 </head>
 <body>
@@ -204,22 +250,45 @@
     <div class="wrap">
       <div class="head">
         <h2>Selected work</h2>
-        <p>One analysis with a business result, then the pipelines and models behind my engineering skills.</p>
+        <p>Two flagship builds: one analysis that changes a budget, and one pipeline that runs without me.</p>
       </div>
 
-      <article class="case">
+      <!-- FLAGSHIP 1 -->
+      <article class="case reveal-chart">
+        <span class="tag">Analysis: Power BI, DAX, Excel</span>
         <h3>Ad spend audit and budget reallocation</h3>
         <p class="ctx">A marketing agency's assessment: grow sales 25% without raising the budget. I treated it as a self-completed case study and did not submit it to the company.</p>
 
         <div class="results">
-          <div><div class="big num">+3.78%</div><p>Ad-attributed revenue from reallocation alone, ₹1.345 Cr to ₹1.396 Cr</p></div>
-          <div><div class="big num">₹2.94L</div><p>Spent on 37 ad sets that produced no sales at all</p></div>
-          <div><div class="big num">₹73,280</div><p>Reclaimed by stopping 10 campaigns with zero sales</p></div>
+          <div><div class="big num" data-count="3.78" data-dec="2" data-prefix="+" data-suffix="%">+3.78%</div><p>Ad-attributed revenue from reallocation alone, ₹1.345 Cr to ₹1.396 Cr</p></div>
+          <div><div class="big num" data-count="2.94" data-dec="2" data-prefix="₹" data-suffix="L">₹2.94L</div><p>Spent on 37 ad sets that produced no sales at all</p></div>
+          <div><div class="big num" data-count="73280" data-prefix="₹">₹73,280</div><p>Reclaimed by stopping 10 campaigns with zero sales</p></div>
+        </div>
+
+        <div class="chartbox">
+          <h4>Return on ad spend, month by month</h4>
+          <p class="cap">Google peaked at 16.2 in April and fell to 3.4 by August as spend grew. Facebook never rose above 2.5.</p>
+          <svg class="line" viewBox="0 0 640 260" role="img" aria-label="Line chart of monthly return on ad spend. Google: March 0.2, April 16.2, May 12.5, June 7.4, July 5.1, August 3.4. Facebook: 1.5, 2.5, 2.1, 2.2, 1.7, 1.5.">
+            <line class="grid" x1="50" x2="610" y1="220" y2="220"/>
+            <line class="grid" x1="50" x2="610" y1="114.4" y2="114.4"/>
+            <line class="grid" x1="50" x2="610" y1="8.9" y2="8.9"/>
+            <text x="38" y="224" text-anchor="end">0</text>
+            <text x="38" y="118" text-anchor="end">10</text>
+            <text x="38" y="13" text-anchor="end">20</text>
+            <text x="50" y="246" text-anchor="middle">Mar</text><text x="158" y="246" text-anchor="middle">Apr</text><text x="266" y="246" text-anchor="middle">May</text>
+            <text x="374" y="246" text-anchor="middle">Jun</text><text x="482" y="246" text-anchor="middle">Jul</text><text x="590" y="246" text-anchor="middle">Aug</text>
+            <polyline class="path g" pathLength="1" points="50,217.9 158,49 266,88.1 374,141.9 482,166.2 590,184.1"/>
+            <polyline class="path f" pathLength="1" points="50,204.2 158,193.6 266,197.8 374,196.8 482,202.1 590,204.2"/>
+            <g class="dot"><circle cx="158" cy="49" r="5" fill="var(--good)"/><text class="val" x="158" y="36" text-anchor="middle" style="fill:var(--good)">16.2</text>
+              <circle cx="590" cy="184.1" r="5" fill="var(--good)"/><text class="val" x="590" y="172" text-anchor="middle" style="fill:var(--good)">3.4</text>
+              <circle cx="590" cy="204.2" r="5" fill="var(--blue)"/><text class="val" x="590" y="226" text-anchor="middle" style="fill:var(--blue)">1.5</text></g>
+            <text x="190" y="64" style="fill:var(--good)">Google</text>
+            <text x="190" y="188" style="fill:var(--blue)">Facebook</text>
+          </svg>
         </div>
 
         <ul>
           <li>Google returned 5.86 per rupee against Facebook's 1.89, yet Facebook held 93.67% of spend.</li>
-          <li>Both channels peaked in April and declined as spend grew, which points to audience saturation.</li>
           <li>The 25% target cannot be met by moving budget alone. I said so in the report and listed what else is needed: a checkout and tracking fix, order value recovery, and a creative and offer shift.</li>
         </ul>
 
@@ -229,21 +298,49 @@
         </div>
       </article>
 
-      <div style="margin-top:34px">
-        <div class="build">
-          <div>
-            <h3>E-commerce analytics pipeline</h3>
-            <p class="what">Google Cloud, dbt, Python, Power BI</p>
-          </div>
-          <div>
-            <p>A nightly pipeline turns raw e-commerce data into clean tables with 45+ SQL models in BigQuery and dbt. Eight machine learning models score more than 161,000 customers for fraud, churn, lifetime value and recommendations. The Power BI dashboard refreshes by itself each day through GitHub Actions.</p>
-            <div class="links">
-              <a href="https://github.com/Skysushant7366/ecommerce-etl-pipeline" target="_blank" rel="noopener">GitHub repository</a>
-              <a href="https://drive.google.com/file/d/1BpBaR_uQ6jfdwuJByN6FaYOOl_-RHXEb/view?usp=sharing" target="_blank" rel="noopener">Architecture diagram</a>
-            </div>
+      <!-- FLAGSHIP 2 -->
+      <article class="case reveal-chart">
+        <span class="tag">Engineering: Google Cloud, dbt, Python, GitHub Actions, Power BI</span>
+        <h3>E-commerce data and marketing analytics pipeline</h3>
+        <p class="ctx">A pipeline that turns raw e-commerce data into decisions every night, with no manual step. It tells the business which customers are risky, which may leave, and which are worth keeping.</p>
+
+        <div class="results">
+          <div><div class="big num" data-count="45" data-suffix="+">45+</div><p>SQL models in BigQuery and dbt that clean and shape the raw data</p></div>
+          <div><div class="big num" data-count="8">8</div><p>Machine learning models chained into one scoring system</p></div>
+          <div><div class="big num" data-count="161000" data-suffix="+">161,000+</div><p>Customers scored for fraud, churn, lifetime value and recommendations</p></div>
+        </div>
+
+        <div class="chartbox">
+          <h4>What happens each night</h4>
+          <p class="cap">GitHub Actions starts the run. By morning the Power BI dashboard has refreshed on its own.</p>
+          <div class="flow" aria-label="Pipeline stages in order">
+            <div class="node" style="--i:0"><b>BigQuery</b><span>raw source data</span></div>
+            <div class="node" style="--i:1"><b>dbt</b><span>45+ SQL models</span></div>
+            <div class="node" style="--i:2"><b>GitHub Actions</b><span>nightly trigger</span></div>
+            <div class="node" style="--i:3"><b>ML chain</b><span>8 linked models</span></div>
+            <div class="node" style="--i:4"><b>Decision engine</b><span>margin and discounts</span></div>
+            <div class="node" style="--i:5"><b>Gemini</b><span>marketing copy</span></div>
+            <div class="node" style="--i:6"><b>Power BI</b><span>daily dashboard</span></div>
           </div>
         </div>
 
+        <div class="chartbox">
+          <h4>The scoring chain</h4>
+          <p class="cap">Each model feeds the next, so a customer's fraud, churn and value scores are calculated together instead of in isolation.</p>
+          <div class="chain" style="max-width:640px" aria-hidden="true">
+            <i style="--k:0"></i><u style="--k:1"></u><i style="--k:1"></i><u style="--k:2"></u><i style="--k:2"></i><u style="--k:3"></u><i style="--k:3"></i><u style="--k:4"></u><i style="--k:4"></i><u style="--k:5"></u><i style="--k:5"></i><u style="--k:6"></u><i style="--k:6"></i><u style="--k:7"></u><i style="--k:7"></i>
+          </div>
+          <p class="chainlbl">Eight chained models covering fraud, churn, lifetime value, price sensitivity and product recommendations.</p>
+        </div>
+
+        <div class="links" style="margin-top:22px">
+          <a href="https://github.com/Skysushant7366/ecommerce-etl-pipeline" target="_blank" rel="noopener">GitHub repository</a>
+          <a href="https://drive.google.com/file/d/1BpBaR_uQ6jfdwuJByN6FaYOOl_-RHXEb/view?usp=sharing" target="_blank" rel="noopener">Architecture diagram</a>
+        </div>
+      </article>
+
+      <div style="margin-top:44px">
+        <h3 style="font-size:22px;margin-bottom:6px">Also built</h3>
         <div class="build">
           <div>
             <h3>Bank fraud detection and risk monitoring</h3>
@@ -256,7 +353,6 @@
             </div>
           </div>
         </div>
-
         <div class="build">
           <div>
             <h3>Earlier dashboards</h3>
@@ -358,12 +454,37 @@
 </footer>
 
 <script>
-  // One entrance: the chart bars grow once when the page loads.
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hero chart bars grow once on load.
   window.addEventListener('load', function () {
-    requestAnimationFrame(function () {
-      document.getElementById('chart').classList.add('loaded');
-    });
+    requestAnimationFrame(function () { document.getElementById('chart').classList.add('loaded'); });
   });
+
+  // Charts draw and numbers count up once, when each case study scrolls into view.
+  function countUp(el) {
+    var target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || '0', 10);
+    var pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    function fmt(v) { return pre + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString('en-IN')) + suf; }
+    if (reduce) { el.textContent = fmt(target); return; }
+    var t0 = null, dur = 1400;
+    function tick(t) {
+      if (!t0) t0 = t;
+      var p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * e);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      en.target.querySelectorAll('[data-count]').forEach(countUp);
+      io.unobserve(en.target);
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.reveal-chart').forEach(function (el) { io.observe(el); });
 </script>
 </body>
 </html>
