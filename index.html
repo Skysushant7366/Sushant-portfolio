@@ -217,7 +217,7 @@
       <h1 class="up" style="--d:1">Facebook got 93.67% of a ₹62.8 lakh ad budget. Google returned three times more per rupee.</h1>
       <p class="lede up" style="--d:2">That is the finding from my latest case study. I build the SQL, Power BI and Python behind answers like this one, and I can join immediately.</p>
       <div class="actions up" style="--d:3">
-        <a class="btn main" href="#work">See my two main projects</a>
+        <a class="btn main" href="#work">See my three main projects</a>
         <a class="btn" href="mailto:skysushantm416@gmail.com">Email me</a>
         <a class="btn" href="Sushant_Kumar_Yadav_Resume.pdf" download>Download resume</a>
       </div>
@@ -251,12 +251,13 @@
     <div class="wrap">
       <div class="head rv">
         <h2>Selected work</h2>
-        <p>Two main projects, each from a different side of analytics. Pick one to jump to it.</p>
+        <p>Three main projects, each from a different side of analytics. Pick one to jump to it.</p>
       </div>
 
       <div class="pick">
         <a class="p1 rv" href="#adspend" style="--d:1"><b>Business analysis</b><strong>Ad spend audit</strong><span>Finds where ₹62.8L of ad budget is wasted and how to move it.</span></a>
         <a class="p2 rv" href="#ecom" style="--d:2"><b>Data engineering</b><strong>E-commerce pipeline</strong><span>Scores 161,000+ customers every night with no manual step.</span></a>
+        <a class="p3 rv" href="#fraud" style="--d:3"><b>Risk analytics</b><strong>Bank fraud monitoring</strong><span>Blocks or challenges risky transactions every day, on 300,000+ simulated records.</span></a>
       </div>
 
       <!-- PROJECT 1 -->
@@ -319,6 +320,7 @@
           <div class="links">
             <a href="https://github.com/Skysushant7366/ad-spend-budget-reallocation" target="_blank" rel="noopener">Read the full case study on GitHub</a>
             <a href="https://youtu.be/U88NvBqRqmM" target="_blank" rel="noopener">Watch the dashboard walkthrough</a>
+            <a href="https://youtube.com/shorts/JtjtB42WaFs" target="_blank" rel="noopener">Watch the mobile view</a>
           </div>
         </div>
       </article>
@@ -369,14 +371,36 @@
         </div>
       </article>
 
-      <h3 class="rv" style="font-size:22px;margin:44px 0 6px">Also built</h3>
-      <div class="build rv">
-        <div><h3>Bank fraud detection and risk monitoring</h3><p class="what">BigQuery, SQL, Python, Looker Studio</p></div>
-        <div>
-          <p>300,000+ simulated transactions organised in a three-stage SQL pipeline. A fraud-detection model is combined with 15 statistical checks, the way banks layer more than one control. Daily monitoring feeds a dashboard of flagged transactions.</p>
-          <figure class="shot"><a href="https://lookerstudio.google.com/reporting/e7c17762-682b-4ac6-a7a2-87575e63a76f" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Skysushant7366/bank-fraud-ml-automation/main/dashboard/dashboard_preview_page1.png" alt="Fraud analytics dashboard in Looker Studio" loading="lazy"></a><figcaption>The fraud monitoring dashboard: losses, attack types and automated decisions.</figcaption></figure><div class="links"><a href="https://lookerstudio.google.com/reporting/e7c17762-682b-4ac6-a7a2-87575e63a76f" target="_blank" rel="noopener">View the dashboard</a></div>
+      <!-- PROJECT 3 -->
+      <article class="case p3 rv" id="fraud">
+        <div class="chead">
+          <span class="pill">Risk analytics</span>
+          <h3>Bank fraud detection and risk monitoring</h3>
+          <p>A daily fraud-monitoring system on simulated bank transactions. A model and 15 statistical checks decide whether each transaction is blocked, challenged with an OTP, or allowed, with no manual review step.</p>
+          <p class="tools"><b>Tools:</b> BigQuery ML, SQL, Python, GitHub Actions (keyless login), Looker Studio</p>
         </div>
-      </div>
+        <div class="cbody">
+          <figure class="shot"><a href="https://lookerstudio.google.com/reporting/e7c17762-682b-4ac6-a7a2-87575e63a76f" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Skysushant7366/bank-fraud-ml-automation/main/dashboard/dashboard_preview_page1.png" alt="Fraud analytics dashboard in Looker Studio" loading="lazy"></a><figcaption>Dashboard snapshot from August 2026. The live Looker Studio dashboard updates daily.</figcaption></figure>
+          <h4 class="sec">What it delivers</h4>
+          <div class="results">
+            <div><div class="big num" data-count="300000" data-suffix="+">300,000+</div><p>Simulated transactions with 5 attack patterns, organised in a three-stage SQL pipeline</p></div>
+            <div><div class="big num" data-count="15">15</div><p>Statistical checks layered on an XGBoost model, the way banks use more than one control</p></div>
+            <div><div class="big num" data-count="80" data-suffix="+">80+</div><p>Daily automated runs in a row, with no failures</p></div>
+          </div>
+          <h4 class="sec">What I learned</h4>
+          <ul>
+            <li>Models go stale. The model I trained in September missed more frauds as the daily data changed (13 of 54 on the live dashboard, up from 4 of 44 in August). I retrained it and checked it again: recall about 80%, precision about 56%.</li>
+            <li>Two layers on purpose. The model catches patterns it has seen. The 15 checks catch unusual behaviour it has not.</li>
+            <li>Honest limit: the data is simulated and I injected the attack patterns myself. The results show the system works end to end, not real-world accuracy.</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/Skysushant7366/bank-fraud-ml-automation" target="_blank" rel="noopener">GitHub repository</a>
+            <a href="https://lookerstudio.google.com/reporting/e7c17762-682b-4ac6-a7a2-87575e63a76f" target="_blank" rel="noopener">View the dashboard</a>
+          </div>
+        </div>
+      </article>
+
+      <h3 class="rv" style="font-size:22px;margin:44px 0 6px">Also built</h3>
       <div class="build rv">
         <div><h3>Earlier dashboards</h3><p class="what">2025</p></div>
         <div>
@@ -467,7 +491,7 @@
   function countUp(el) {
     var target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || '0', 10);
     var pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
-    function fmt(v) { return pre + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString('en-IN')) + suf; }
+    function fmt(v) { return pre + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString('en-US')) + suf; }
     if (reduce) { el.textContent = fmt(target); return; }
     var t0 = null;
     function tick(t) {
@@ -551,5 +575,6 @@ tbody tr td:first-child{border-left:3px solid transparent;transition:border-colo
 </script>
 
 <style>.shot{margin:22px 0 4px;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 18px 36px -26px rgba(11,37,69,.5)}.shot a{display:block;overflow:hidden}.shot img{display:block;width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}.shot a:hover img{transform:scale(1.03)}.shot figcaption{padding:10px 16px;font-size:14px;color:var(--ink-2);border-top:1px solid var(--rule)}</style>
+<style>.p3{--acc:#9F1239}.pick{grid-template-columns:repeat(3,1fr)}@media (max-width:900px){.pick{grid-template-columns:1fr}}</style>
 </body>
 </html>
