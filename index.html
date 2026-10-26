@@ -389,7 +389,7 @@
           </div>
           <h4 class="sec">What I learned</h4>
           <ul>
-            <li>Models go stale. The model I trained in September missed more frauds as the daily data changed (13 of 54 on the live dashboard, up from 4 of 44 in August). I retrained it and checked it again: recall about 80%, precision about 56%.</li>
+            <li>Models go stale. The model I trained in September missed more frauds as the daily data changed (13 of 54 in a 15-day window in October, up from 4 of 44 in August). I retrained it and checked it again (recall about 80%, precision about 56%), and it now retrains automatically about every two weeks.</li>
             <li>Two layers on purpose. The model catches patterns it has seen. The 15 checks catch unusual behaviour it has not.</li>
             <li>Honest limit: the data is simulated and I injected the attack patterns myself. The results show the system works end to end, not real-world accuracy.</li>
           </ul>
