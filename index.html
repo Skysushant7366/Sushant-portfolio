@@ -221,6 +221,7 @@
         <a class="btn" href="mailto:skysushantm416@gmail.com">Email me</a>
         <a class="btn" href="Sushant_Kumar_Yadav_Resume.pdf" download>Download resume</a>
       </div>
+      <div class="chips up" style="--d:4"><span class="chip"><i class="dot"></i>Fraud pipeline runs daily</span><span class="chip">161,000+ customers scored nightly</span><span class="chip">₹62.8L ad spend audited</span></div>
     </div>
   </div>
 
@@ -245,6 +246,8 @@
       <p class="src">From my Power BI audit of 32 campaigns and 74 ad sets. Moving budget toward what works lifts ad revenue 3.78% with no extra spend.</p>
     </div>
   </div>
+
+  <div class="marq" aria-hidden="true"><div class="mt"><span>SQL</span><span>Power BI</span><span>DAX</span><span>Python</span><span>R</span><span>BigQuery</span><span>dbt</span><span>Looker Studio</span><span>Tableau</span><span>Excel</span><span>XGBoost</span><span>GitHub Actions</span><span>Google Cloud</span><span>Power Automate</span></div></div>
 
   <!-- WORK -->
   <section id="work">
@@ -378,6 +381,7 @@
           <h3>Bank fraud detection and risk monitoring</h3>
           <p>A daily fraud-monitoring system on simulated bank transactions. A model and 15 statistical checks decide whether each transaction is blocked, challenged with an OTP, or allowed, with no manual review step.</p>
           <p class="tools"><b>Tools:</b> BigQuery ML, SQL, Python, GitHub Actions (keyless login), Looker Studio</p>
+          <p class="live"><i class="dot"></i>Live status of the daily run: <img src="https://github.com/Skysushant7366/bank-fraud-ml-automation/actions/workflows/run_ml.yml/badge.svg" alt="Daily pipeline status"></p>
         </div>
         <div class="cbody">
           <figure class="shot"><a href="https://lookerstudio.google.com/reporting/e7c17762-682b-4ac6-a7a2-87575e63a76f" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Skysushant7366/bank-fraud-ml-automation/main/dashboard/dashboard_preview_page1.png" alt="Fraud analytics dashboard in Looker Studio" loading="lazy"></a><figcaption>Dashboard snapshot from August 2026. The live Looker Studio dashboard updates daily.</figcaption></figure>
@@ -576,5 +580,24 @@ tbody tr td:first-child{border-left:3px solid transparent;transition:border-colo
 
 <style>.shot{margin:22px 0 4px;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 18px 36px -26px rgba(11,37,69,.5)}.shot a{display:block;overflow:hidden}.shot img{display:block;width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}.shot a:hover img{transform:scale(1.03)}.shot figcaption{padding:10px 16px;font-size:14px;color:var(--ink-2);border-top:1px solid var(--rule)}</style>
 <style>.p3{--acc:#9F1239}.pick{grid-template-columns:repeat(3,1fr)}@media (max-width:900px){.pick{grid-template-columns:1fr}}</style>
+<style>
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#DCE6F5;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 14px;border-radius:30px;backdrop-filter:blur(6px)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#34D399;animation:pls 2s infinite}
+@keyframes pls{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}70%,100%{box-shadow:0 0 0 9px rgba(52,211,153,0)}}
+.live{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:14.5px;color:var(--ink-2)}.live img{height:20px}
+.finding{overflow:hidden}
+.finding::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--fb),var(--c2),var(--gold),var(--fb));background-size:200% 100%;animation:flw 7s linear infinite}
+@keyframes flw{to{background-position:200% 0}}
+.marq{overflow:hidden;background:#fff;border-bottom:1px solid var(--rule);padding:14px 0;margin-top:56px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mt{display:flex;gap:12px;width:max-content;animation:mq 40s linear infinite}.marq:hover .mt{animation-play-state:paused}
+.mt span{font:500 13.5px 'IBM Plex Mono',monospace;color:var(--navy-2);background:#EEF2F9;border:1px solid var(--rule);padding:6px 14px;border-radius:20px;white-space:nowrap}
+@keyframes mq{to{transform:translateX(-50%)}}
+#skills{background:linear-gradient(180deg,#fff,var(--paper))}
+.case{transition:border-color .3s}.case:hover{border-color:color-mix(in srgb,var(--acc) 45%,var(--rule))}
+</style>
+<script>
+(function(){var t=document.querySelector('.mt');if(t)t.innerHTML+=t.innerHTML;})();
+</script>
 </body>
 </html>
